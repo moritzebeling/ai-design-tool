@@ -1,11 +1,17 @@
-<script context="module">
-</script>
-
 <script>
+
+    export let isGenerating = false;
+
 </script>
 
 <div class="preview">
-    <div>Preview</div>
+    <div>
+        {#if isGenerating}
+            Generating...
+        {:else}
+            Please define your design
+        {/if}    
+    </div>
 </div>
 
 <style lang="scss">

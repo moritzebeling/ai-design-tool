@@ -3,12 +3,14 @@
 
 <script>
 
+    import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+
     import Slider from '$lib/Slider.svelte';
 
     let displayed = [];
 
     function updateNumSliders( event ){
-        console.log( event.detail );
         displayed = sliders;
         displayed = displayed.slice( 0, event.detail);
     }
@@ -29,6 +31,10 @@
         'Romance',
     ];
 
+    function onchange( event ){
+        dispatch('update', event.detail);
+    }
+
 </script>
 
 <div class="controls">
@@ -36,7 +42,7 @@
     <Slider name="Slider" on:update={updateNumSliders} max={sliders.length} />
 
     {#each displayed as item}
-        <Slider name="{item}" />
+        <Slider name="{item}" on:update={onchange} />
     {/each}
 
 </div>

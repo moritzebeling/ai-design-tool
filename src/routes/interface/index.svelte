@@ -6,32 +6,62 @@
     import Preview from '$lib/Preview.svelte';
     import Controls from './_Controls.svelte';
 
+    let isGenerating = false;
+
+    function onupdate(){
+        console.log('update');
+        isGenerating = true;
+    }
+
 </script>
 
 <div class="wrapper">
+    
     <main>
-        <Controls />
+
+        <div class="controls">
+            <Controls on:update={onupdate} />
+        </div>
+
+        <div class="submit">
+            <button>Create</button>
+        </div>
+
     </main>
 
     <aside>
-        <Preview />
+        <Preview {isGenerating} />
     </aside>
+
 </div>
 
 <style lang="scss">
 
-.wrapper {
-    display: flex;
-    height: 100vh;
-    align-items: stretch;
-    main, aside {
-        flex: 1;
-        width: 50%;
+    .wrapper {
+        display: flex;
         height: 100vh;
+        align-items: stretch;
+        main, aside {
+            flex: 1;
+            width: 50%;
+            height: 100vh;
+        }
+        main {
+            border-right: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+        }
     }
-    main {
-        border-right: 1px solid black;
+
+    .controls {
+        flex: 1;
     }
-}
+
+    .submit {
+        display: flex;
+        justify-content: flex-end;
+    }
+
 
 </style>
