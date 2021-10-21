@@ -5,22 +5,39 @@
 
     import Slider from '$lib/Slider.svelte';
 
+    let displayed = [];
+
+    function updateNumSliders( event ){
+        console.log( event.detail );
+        displayed = sliders;
+        displayed = displayed.slice( 0, event.detail);
+    }
+
+    let sliders = [
+        'Era',
+        'Complexity',
+        'Absurdity',
+        'Materiality',
+        'Q-Structure',
+        'Level',
+        'Order',
+        'Style-semantic ralationship',
+        'Contemporary Appriximator',
+        'Noise injection',
+        'Aether path deriviation',
+        'Nostalica',
+        'Romance',
+    ];
+
 </script>
 
 <div class="controls">
 
-    <Slider name="Slider" />
-    <Slider name="Era" />
-    <Slider name="Complexity" />
-    <Slider name="Absurdity" />
-    <Slider name="Materiality" />
-    <Slider name="Q-Structure" />
-    <Slider name="Level" />
-    <Slider name="Order" />
-    <Slider name="Style-semantic ralationship" />
-    <Slider name="Contemporary Appriximator" />
-    <Slider name="Noise injection" />
-    <Slider name="Aether path deriviation" />
+    <Slider name="Slider" on:update={updateNumSliders} max={sliders.length} />
+
+    {#each displayed as item}
+        <Slider name="{item}" />
+    {/each}
 
 </div>
 
