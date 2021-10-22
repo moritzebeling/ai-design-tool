@@ -17,6 +17,10 @@
         isGenerating = true;
     }
 
+    function allllert(){
+        alert('Are you really sure what you are doing?');
+    }
+
 </script>
  
 <div class="wrapper">
@@ -24,12 +28,14 @@
     <main>
 
         <div class="controls">
-            <h1>The final design tool</h1>
-            <Controls on:update={onupdate} />
+            <div>
+                <h1>The final design tool</h1>
+                <Controls on:update={onupdate} />
+            </div>
         </div>
 
         <div class="submit">
-            <button>Create</button>
+            <button on:click={allllert}>Create</button>
         </div>
 
     </main>
@@ -53,6 +59,8 @@
         }
         main {
             display: flex;
+            height: 100vh;
+            overflow-y: auto;
             flex-direction: column;
             padding: 1rem;
         }
@@ -60,8 +68,6 @@
 
     .controls {
         flex: 1;
-        height: 100vh;
-        overflow-y: auto;
     }
 
     .submit {
