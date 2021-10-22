@@ -1,13 +1,26 @@
 <script>
 
+    import { onMount } from 'svelte';
     export let isGenerating = false;
+    let points = 0;
+    function run(){
+        setInterval(() => {
+            points++;
+            if( points > 3 ){
+                points = 0;
+            }
+        }, 800);
+    }
+    onMount(()=>{
+        run();
+    });
 
 </script>
 
 <div class="preview">
     <div>
         {#if isGenerating}
-            Generating...
+            Generating {('....').substring(0,points)}
         {:else}
             Please define your design
         {/if}    
