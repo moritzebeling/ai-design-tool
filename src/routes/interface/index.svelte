@@ -18,13 +18,13 @@
     }
 
 </script>
-
+ 
 <div class="wrapper">
     
     <main>
 
         <div class="controls">
-            <h1>Definitive AI design tool</h1>
+            <h1>The final design tool</h1>
             <Controls on:update={onupdate} />
         </div>
 
