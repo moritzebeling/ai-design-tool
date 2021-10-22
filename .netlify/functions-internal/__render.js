@@ -6125,9 +6125,9 @@ function init(settings = default_settings) {
     amp: false,
     dev: false,
     entry: {
-      file: assets + "/_app/start-da7b3d51.js",
+      file: assets + "/_app/start-9ec267f4.js",
       css: [assets + "/_app/assets/start-6f3a9c88.css"],
-      js: [assets + "/_app/start-da7b3d51.js", assets + "/_app/chunks/vendor-ac48c6d6.js"]
+      js: [assets + "/_app/start-9ec267f4.js", assets + "/_app/chunks/vendor-bf777466.js"]
     },
     fetched: void 0,
     floc: false,
@@ -6196,7 +6196,7 @@ var module_lookup = {
     return index;
   })
 };
-var metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-0efa709c.js", "css": ["assets/pages/__layout.svelte-1de1ce0e.css"], "js": ["pages/__layout.svelte-0efa709c.js", "chunks/vendor-ac48c6d6.js"], "styles": [] }, ".svelte-kit/build/components/error.svelte": { "entry": "error.svelte-fc237e91.js", "css": [], "js": ["error.svelte-fc237e91.js", "chunks/vendor-ac48c6d6.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-c1515742.js", "css": ["assets/pages/index.svelte-af5c043b.css"], "js": ["pages/index.svelte-c1515742.js", "chunks/vendor-ac48c6d6.js"], "styles": [] }, "src/routes/interface/index.svelte": { "entry": "pages/interface/index.svelte-31d5e4ee.js", "css": ["assets/pages/interface/index.svelte-5680d72a.css"], "js": ["pages/interface/index.svelte-31d5e4ee.js", "chunks/vendor-ac48c6d6.js"], "styles": [] } };
+var metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-77a24476.js", "css": ["assets/pages/__layout.svelte-1de1ce0e.css"], "js": ["pages/__layout.svelte-77a24476.js", "chunks/vendor-bf777466.js"], "styles": [] }, ".svelte-kit/build/components/error.svelte": { "entry": "error.svelte-dca5ba28.js", "css": [], "js": ["error.svelte-dca5ba28.js", "chunks/vendor-bf777466.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-0d16f684.js", "css": ["assets/pages/index.svelte-af5c043b.css"], "js": ["pages/index.svelte-0d16f684.js", "chunks/vendor-bf777466.js"], "styles": [] }, "src/routes/interface/index.svelte": { "entry": "pages/interface/index.svelte-ae78e9ff.js", "css": ["assets/pages/interface/index.svelte-5680d72a.css"], "js": ["pages/interface/index.svelte-ae78e9ff.js", "chunks/vendor-bf777466.js"], "styles": [] } };
 async function load_component(file) {
   const { entry, css: css2, js, styles } = metadata_lookup[file];
   return {
@@ -6266,10 +6266,23 @@ var css$3 = {
 };
 var Preview = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { isGenerating = false } = $$props;
+  let points = 0;
+  function run2() {
+    setInterval(() => {
+      points++;
+      if (points >= 3) {
+        points = 0;
+      }
+    }, 500);
+  }
   if ($$props.isGenerating === void 0 && $$bindings.isGenerating && isGenerating !== void 0)
     $$bindings.isGenerating(isGenerating);
   $$result.css.add(css$3);
-  return `<div class="${"preview svelte-ginbn4"}"><div class="${"svelte-ginbn4"}">${isGenerating ? `Generating` : `Please define your design`}</div>
+  {
+    run2();
+  }
+  return `<div class="${"preview svelte-ginbn4"}"><div class="${"svelte-ginbn4"}">${isGenerating ? `Generating
+            ${each(points, (p) => `.`)}` : `Please define your design`}</div>
 </div>`;
 });
 var css$2 = {
