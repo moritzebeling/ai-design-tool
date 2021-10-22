@@ -51,7 +51,6 @@
             height: 100vh;
         }
         main {
-            border-right: 1px solid black;
             display: flex;
             flex-direction: column;
             padding: 1rem;

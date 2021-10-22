@@ -30,12 +30,14 @@
 <style lang="scss">
 
 .preview {
-    background-color: #ddd;
+    background-color: #eee;
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: sticky;
+    top: 0;
 }
 
 </style>
