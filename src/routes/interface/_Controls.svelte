@@ -42,4 +42,9 @@
 
 <style lang="scss">
 
+    .controls {
+        display: grid;
+        gap: 0.5rem 1rem;
+    }
+
 </style>

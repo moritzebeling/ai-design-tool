@@ -45,7 +45,9 @@
     {#if show}
         <div class="options">
             {#each options as item}
-                <Slider name="{item}" on:update={onchange} />
+                <div>
+                    <Slider name="{item}" on:update={onchange} />
+                </div>
             {/each}
         </div>
     {:else}
@@ -56,11 +58,11 @@
 
 <style lang="scss">
 
-    section {
-        margin: 0.5rem 0;
-        background-color: #eee;
-        padding: 0.5rem 1rem;
+    .options {
+        margin-top: 0.5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem 1rem;
     }
-    .options {}
 
 </style>

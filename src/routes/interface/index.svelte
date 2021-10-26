@@ -40,9 +40,9 @@
 
     </main>
 
-    <aside>
+    <!-- <aside>
         <Preview {isGenerating} />
-    </aside>
+    </aside> -->
 
 </div>
 
