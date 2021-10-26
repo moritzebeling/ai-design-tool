@@ -1,10 +1,6 @@
 <script>
 
-    import { createEventDispatcher } from 'svelte';
-	const dispatch = createEventDispatcher();
-    function onchange(event){
-        dispatch('update', event.target.value);
-    }
+    import Group from '$lib/Group.svelte';
 
     export let name = "Slider";
     export let min = 0;
@@ -12,14 +8,18 @@
     export let value = 0;
     export let from = 'From';
     export let to = 'To';
+    export let options = [];
 
 </script>
 
 <div class="field">
 
-    {#if $$slots}
+    <div class="title">
         <h4 class="label">{name}</h4>
-    {/if}
+        {#if options.length > 0}
+            <button>Options</button>
+        {/if}
+    </div>
 
     <input type="range" {min} {max} {value} on:change={onchange}>
 
@@ -27,6 +27,10 @@
         <label>{from}</label>
         <label>{to}</label>
     </div>
+
+    {#if options.length > 0}
+        <Group {options} />
+    {/if}
 
 </div>
 
@@ -41,6 +45,10 @@
     }
     .label {
         margin-bottom: 0.5rem;
+    }
+    .title {
+        display: flex;
+        justify-content: space-between;
     }
     .labels {
         margin-top: 0.5rem;

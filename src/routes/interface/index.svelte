@@ -7,73 +7,22 @@
 
 <script>
 
-    import Preview from '$lib/Preview.svelte';
-    import Controls from './_Controls.svelte';
-
-    let isGenerating = false;
-
-    function onupdate(){
-        console.log('update');
-        isGenerating = true;
-    }
-
-    function allllert(){
-        alert('Are you really sure what you are doing?');
-    }
+    import Group from '$lib/Group.svelte';
 
 </script>
- 
-<div class="wrapper">
-    
-    <main>
+     
+<header>
+    <h1>The FINAL DESIGN tool</h1>
+</header>
 
-        <div class="controls">
-            <div>
-                <h1>The final design tool</h1>
-                <Controls on:update={onupdate} />
-            </div>
-        </div>
-
-        <div class="submit">
-            <button on:click={allllert}>Create</button>
-        </div>
-
-    </main>
-
-    <!-- <aside>
-        <Preview {isGenerating} />
-    </aside> -->
-
-</div>
+<main>
+    <Group />
+</main>
 
 <style lang="scss">
 
-    .wrapper {
-        display: flex;
-        height: 100vh;
-        align-items: stretch;
-        main, aside {
-            flex: 1;
-            width: 50%;
-            height: 100vh;
-        }
-        main {
-            display: flex;
-            height: 100vh;
-            overflow-y: auto;
-            flex-direction: column;
-            padding: 1rem;
-        }
+    header, main {
+        margin: 1rem;
     }
-
-    .controls {
-        flex: 1;
-    }
-
-    .submit {
-        display: flex;
-        justify-content: flex-end;
-    }
-
 
 </style>
