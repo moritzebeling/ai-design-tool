@@ -2,15 +2,27 @@
 
     export const prerender = true;
     export const ssr = true;
-    
+
 </script>
 
 <script>
-</script>
 
-<nav>
-    <a href="/interface">Interface</a>
-</nav>
+    import Group from '$lib/Group.svelte';
+
+</script>
+     
+<header>
+    <h1>The FINAL DESIGN tool</h1>
+</header>
+
+<main>
+    <Group />
+</main>
 
 <style lang="scss">
+
+    header, main {
+        margin: 1rem;
+    }
+
 </style>

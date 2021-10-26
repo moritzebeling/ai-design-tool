@@ -1,0 +1,9 @@
+mood1:
+  label: Mood 1
+
+mood2:
+  label: Mood 2
+  min: 50
+  max: 100
+  from: Min
+  to: Max
