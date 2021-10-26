@@ -17,10 +17,10 @@
 <style lang="scss">
 
     section {
-        background-color: yellow;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 0.5rem;
+        margin-top: 0.5rem;
     }
 
 </style>

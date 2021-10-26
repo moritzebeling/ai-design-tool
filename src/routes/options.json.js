@@ -66,9 +66,7 @@ export async function get({params}) {
     fields = validateFields( data );
 
     return {
-        body: {
-            fields: fields
-        }
+        body: fields
     };
 
 }

@@ -1,8 +1,9 @@
 <script>
 
+    import { slide } from 'svelte/transition';
     import Group from '$lib/Group.svelte';
 
-    export let name = "Slider";
+    export let label = "Slider";
     export let min = 0;
     export let max = 100;
     export let value = 0;
@@ -10,14 +11,16 @@
     export let to = 'To';
     export let options = [];
 
+    let showOptions = false;
+
 </script>
 
 <div class="field">
 
     <div class="title">
-        <h4 class="label">{name}</h4>
+        <h4 class="label">{label}</h4>
         {#if options.length > 0}
-            <button>Options</button>
+            <button on:click={()=>showOptions = !showOptions}>Options</button>
         {/if}
     </div>
 
@@ -28,8 +31,10 @@
         <label>{to}</label>
     </div>
 
-    {#if options.length > 0}
-        <Group {options} />
+    {#if showOptions && options.length > 0}
+        <div class="options" transition:slide="{{duration: 300}}">
+            <Group {options} />
+        </div>
     {/if}
 
 </div>
@@ -49,11 +54,13 @@
     .title {
         display: flex;
         justify-content: space-between;
+        align-items: top;
     }
     .labels {
         margin-top: 0.5rem;
         display: flex;
         justify-content: space-between;
+        font-size: 0.7rem;
     }
     input {
         -webkit-appearance: none;
@@ -90,6 +97,27 @@
         border-radius: 2rem;
         background: $color;
         cursor: pointer;
+    }
+
+    button {
+        border-radius: 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-color: transparent;
+        outline: none;
+        font: inherit;
+        border: 0;
+        padding: 0;
+        margin: 0;
+        font-size: 0.7rem;
+        display: block;
+        line-height: inherit;
+        &:before {
+            content: '[';
+        }
+        &:after {
+            content: ']';
+        }
     }
 
 </style>
