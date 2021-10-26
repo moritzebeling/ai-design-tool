@@ -1,2 +1,18 @@
 @import 'reset';
 @import 'mixins';
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-size: 1rem;
+    @include font-regular;
+}
+
+h1, h2, h3, h4 {
+    @include font-bold;
+}
+h1, h2 {
+    text-align: center;
+}

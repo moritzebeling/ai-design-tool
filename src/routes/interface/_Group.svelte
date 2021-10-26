@@ -4,7 +4,7 @@
 	const dispatch = createEventDispatcher();
 
     import Slider from '$lib/Slider.svelte';
-
+ 
     export let name = "Slider";
     export let min = 0;
     export let max = 100;
@@ -60,10 +60,7 @@
         margin: 0.5rem 0;
         background-color: #eee;
         padding: 0.5rem 1rem;
-        border-radius: 1rem;
     }
-    .options {
-        margin-left: 2rem;
-    }
+    .options {}
 
 </style>
