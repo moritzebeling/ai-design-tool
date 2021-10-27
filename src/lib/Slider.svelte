@@ -2,8 +2,8 @@
 
     import { onMount } from 'svelte';
     import { slide } from 'svelte/transition';
-    import Group from '$lib/Group.svelte';
     import { Animation } from '$lib/SliderAnimation.js';
+    import Group from '$lib/Group.svelte';
 
     export let id;
     export let label = "Slider";
@@ -29,13 +29,13 @@
 <div class="field">
 
     <div class="title">
-        <h4 class="label">{label}</h4>
+        <label for={id}>{label}</label>
         {#if options.length > 0}
             <button on:click={()=>showOptions = !showOptions}>Options</button>
         {/if}
     </div>
 
-    <input {id} type="range" bind:this={element} {min} {max} {value} step="0.1" on:change={onchange}>
+    <input {id} type="range" bind:this={element} {min} {max} {value} step="0.1">
 
     <div class="labels">
         <label>{from}</label>
@@ -52,26 +52,25 @@
 
 <style lang="scss">
 
-    $color: #00f;
-
     .field {
         width: 100%;
-        border-top: 1px solid #ddd;
+        border-top: 1px solid $light;
         padding-top: 1.5rem;
-    }
-    .label {
-        margin-bottom: 0.5rem;
     }
     .title {
         display: flex;
         justify-content: space-between;
         align-items: top;
+        label {
+            @include font-bold;
+        }
     }
     .labels {
-        margin-top: 0.5rem;
         display: flex;
         justify-content: space-between;
-        font-size: 0.7rem;
+        label + label {
+            text-align: right;
+        }
     }
     input {
         -webkit-appearance: none;
@@ -84,13 +83,14 @@
         position: relative;
         border-left: 2px solid $color;
         border-right: 2px solid $color;
+        margin: 1rem 0;
         &:after {
             content: '';
             position: absolute;
             top: 50%;
             height: 2px;
             width: 100%;
-            background-color: #000;
+            background-color: $stroke;
             z-index: -1;
         }
     }
@@ -121,7 +121,6 @@
         border: 0;
         padding: 0;
         margin: 0;
-        font-size: 0.7rem;
         display: block;
         line-height: inherit;
         &:before {
