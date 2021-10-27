@@ -8,11 +8,27 @@
     export let top = 100;
     export let left = 100;
 
+    let dragging = false;
+    function onMouseDown() {
+		dragging = true;
+	}
+	function onMouseMove(e) {
+		if (dragging) {
+			left += e.movementX;
+			top += e.movementY;
+		}
+	}
+	function onMouseUp() {
+		dragging = false;
+	}
+
 </script>
+
+<svelte:window on:mouseup={onMouseUp} on:mousemove={onMouseMove} />
 
 <aside class="size-{size}" style="top:{top}px;left:{left}px;">
     <header>
-        <div class="bar">
+        <div class="bar" on:mousedown={onMouseDown}>
             <h2>{title}</h2>
         </div>
         <div>
@@ -46,13 +62,13 @@
         }
     }
     header {
+        user-select: none;
         border-bottom: $border;
         display: flex;
         > div {
             padding: 0.5rem;
         }
         .bar {
-            background-color: yellow;
             flex: 1;
         }
     }

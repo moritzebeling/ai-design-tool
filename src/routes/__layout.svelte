@@ -1,6 +1,7 @@
 <script>
 	import '../scss/global.scss';
     import Popup from '$lib/Popup.svelte';
+    import Spinner from '$lib/Spinner.svelte';
 
     let showGuide = true;
     let showPreview = true;
@@ -14,10 +15,10 @@
 </svelte:head>
 
 <header>
-    <div class="center">
+    <div>
         <h1>SEMI*</h1>
     </div>
-    <div class="right">
+    <div>
         <button on:click={()=> showGuide = true }>User Guide</button>
         <button on:click={()=> showPreview = true }>Preview</button>
     </div>
@@ -33,9 +34,9 @@
 {/if}
 
 {#if showPreview}
-    <Popup title="Live Preview" on:close="{()=> showPreview = false }" top="200" left="200">
-        <div class="text">
-            <h2>Generating...</h2>
+    <Popup title="Live Preview" on:close="{()=> showPreview = false }" top={200} left={200}>
+        <div class="center">
+            <Spinner />
         </div>
     </Popup>
 {/if}
@@ -52,7 +53,10 @@
 	h1 {
 		font-size: 2rem;
 	}
-    .padding {
-        padding: 0.5rem;
+    .center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 12rem;
     }
 </style>
