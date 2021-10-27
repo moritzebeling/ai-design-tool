@@ -14,7 +14,7 @@
 </div>
 
 <style lang="scss">
-    $size: 2rem;
+    $size: 2em;
     $duration: 2s;
     .wrapper {
         height: $size;
