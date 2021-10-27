@@ -52,12 +52,12 @@
 
 <style lang="scss">
 
-    $color: #000;
+    $color: #00f;
 
     .field {
         width: 100%;
-        border-top: 1px solid #000;
-        padding-top: 0.5rem;
+        border-top: 1px solid #ddd;
+        padding-top: 1.5rem;
     }
     .label {
         margin-bottom: 0.5rem;
@@ -91,6 +91,7 @@
             height: 2px;
             width: 100%;
             background-color: #000;
+            z-index: -1;
         }
     }
     input::-webkit-slider-thumb {
