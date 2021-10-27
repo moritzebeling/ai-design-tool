@@ -10,6 +10,8 @@ body {
     background: $background;
     color: $color1;
     @include font-regular;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 h1, h2, h3, h4 {

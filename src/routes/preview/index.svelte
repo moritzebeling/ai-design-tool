@@ -13,7 +13,7 @@
      
 <div class="wrapper">
     <header>
-        <h1>Semi</h1>
+        <h1>SEMI*</h1>
     </header>
     <main>
         <Spinner />

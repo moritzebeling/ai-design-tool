@@ -3,6 +3,7 @@
     import { onMount } from 'svelte';
     import { slide } from 'svelte/transition';
     import { Animation } from '$lib/SliderAnimation.js';
+    import Popup from '$lib/Popup.svelte';
     import Group from '$lib/Group.svelte';
 
     export let id;
@@ -49,9 +50,9 @@
     </div>
 
     {#if showOptions && options.length > 0}
-        <div class="options" transition:slide="{{duration: 300}}">
+        <Popup title="{label} Options" on:close="{()=> showOptions = false }">
             <Group {options} />
-        </div>
+        </Popup>
     {/if}
 
 </div>

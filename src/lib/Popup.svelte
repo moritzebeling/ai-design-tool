@@ -75,5 +75,8 @@
     h2 {
         cursor: grab;
     }
+    main {
+        padding: 1rem;
+    }
 
 </style>
