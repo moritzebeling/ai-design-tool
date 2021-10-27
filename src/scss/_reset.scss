@@ -155,3 +155,17 @@ table {
 :focus {
   outline: 0;
 }
+
+button {
+	border-radius: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-color: transparent;
+	outline: none;
+	font: inherit;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	display: inline-block;
+	line-height: inherit;
+}

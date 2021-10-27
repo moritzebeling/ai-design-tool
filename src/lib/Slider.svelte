@@ -31,7 +31,13 @@
     <div class="title">
         <label for={id}>{label}</label>
         {#if options.length > 0}
-            <button on:click={()=>showOptions = !showOptions}>Options</button>
+            <button on:click={()=>showOptions = !showOptions}>
+                {#if showOptions}
+                    –
+                {:else}
+                    +
+                {/if}
+            </button>
         {/if}
     </div>
 
@@ -111,24 +117,5 @@
         cursor: pointer;
     }
 
-    button {
-        border-radius: 0;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        background-color: transparent;
-        outline: none;
-        font: inherit;
-        border: 0;
-        padding: 0;
-        margin: 0;
-        display: block;
-        line-height: inherit;
-        &:before {
-            content: '[';
-        }
-        &:after {
-            content: ']';
-        }
-    }
 
 </style>

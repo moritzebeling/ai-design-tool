@@ -24,10 +24,6 @@
 
 </script>
      
-<header>
-    <h1>SEMI*</h1>
-</header>
-
 <main>
     <Group {options} />
 </main>
