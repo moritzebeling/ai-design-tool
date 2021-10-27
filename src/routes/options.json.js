@@ -49,9 +49,9 @@ function validateField( field, id = undefined ){
 }
 
 function validateFields( fields ){
-    if( typeof fields === 'array' ){
+    if( Array.isArray( fields ) ){
         return fields.map( field => validateField(field) );
-    } else if( typeof fields === 'object' ){
+    } else if( Object.prototype.toString.call(fields) === '[object Object]' ){
         return Object.entries( fields ).map( entry => validateField( entry[1], entry[0] ) );
     }
     return [];
@@ -62,7 +62,7 @@ export async function get({params}) {
     const file = readFile(`options.yml`);
     let data = YAML.parse(file);
 
-    fields = validateFields( data );
+    const fields = validateFields( data );
 
     return {
         body: fields

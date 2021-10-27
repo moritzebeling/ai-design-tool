@@ -17,7 +17,7 @@ export class Animation {
         if(!this.active){
             return;
         }
-        let wait = randomInt(1000, 25000);
+        let wait = randomInt(1000, 10000);
         await this.timeout( wait );
         if(this.active){
             this.start();
