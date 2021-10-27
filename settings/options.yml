@@ -1,183 +1,80 @@
-- 
+-
   label: Option 1
-  from: Uncool
-  to: Cool
+  from: a
+  to: b
   options:
-    - 
+    -
       label: Option
-    - 
+    -
       label: Option
-    - 
+    -
       label: Option
-    - 
+    -
       label: Option
-    - 
+    -
       label: Option
-    - 
+    -
       label: Option
-    - 
+    -
       label: Option
-    - 
+    -
       label: Option
-    - 
+    -
       label: Option
-    - 
+    -
       label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
-- 
-  label: Option
+-
+  label: light situation
+  from: dimmed
+  to: spotlight
+-
+  label: fauna
+  from: floral
+  to: rockery
+-
+  label: interior
+  from: niche
+  to: open concept
+-
+  label: inedibility
+  from: overcooked
+  to: oversalted
+-
+  label: attraction
+  from: like to know it
+  to: upsetting
+-
+  label: public space
+  from: outside beverage
+  to: no loitering
+-
+  label: feng shui
+-
+  label: childhood mood
+  from: playground
+  to: math homework
+
+-
+  label: alert level
+  from: push notification
+  to: breaking news
+-
+  label: body wholesomeness
+  from: the opposite of hungy
+  to: after workout feeling
+-
+  label: common denominator
+  from: coriander
+  to: pizza
+-
+  label: je ne sais quoi
+-
+  label: campy
+-
+  label: sleekness
+  from: silk
+  to: alpaka wool
+-
+  label: clearness
+  from: migraine
+  to: pharmaceutic
