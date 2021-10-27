@@ -87,8 +87,8 @@
         -webkit-transition: .2s;
         transition: opacity .2s;
         position: relative;
-        border-left: 2px solid $color;
-        border-right: 2px solid $color;
+        border-left: 2px solid $color2;
+        border-right: 2px solid $color2;
         margin: 1rem 0;
         &:after {
             content: '';
@@ -96,7 +96,7 @@
             top: 50%;
             height: 2px;
             width: 100%;
-            background-color: $stroke;
+            background: $color1;
             z-index: -1;
         }
     }
@@ -106,14 +106,14 @@
         appearance: none;
         width: 2rem;
         height: 2rem;
-        background: $color;
+        background: $color2;
         cursor: pointer;
     }
     input::-moz-range-thumb {
         width: 2rem;
         height: 2rem;
         border-radius: 2rem;
-        background: $color;
+        background: $color2;
         cursor: pointer;
     }
 

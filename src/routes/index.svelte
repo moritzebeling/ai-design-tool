@@ -30,7 +30,7 @@
 
 <style lang="scss">
 
-    header, main {
+    main {
         margin: 1rem;
     }
 
