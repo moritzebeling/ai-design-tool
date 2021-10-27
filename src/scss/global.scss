@@ -7,14 +7,23 @@ html {
 
 body {
     font-size: 1rem;
+    background: $background;
+    color: $color1;
     @include font-regular;
 }
 
 h1, h2, h3, h4 {
     @include font-bold;
 }
-h1, h2 {
-    text-align: center;
+
+.text {
+    padding: 0.5rem;
+    p {
+        line-height: 1.3;
+    }
+    p + p {
+        text-indent: 1.5em;
+    }
 }
 
 button {

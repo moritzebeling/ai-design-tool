@@ -1,5 +1,10 @@
 <script>
 	import '../scss/global.scss';
+    import Popup from '$lib/Popup.svelte';
+
+    let showGuide = true;
+    let showPreview = true;
+
 </script>
 
 <svelte:head>
@@ -13,10 +18,27 @@
         <h1>SEMI*</h1>
     </div>
     <div class="right">
-        <button>User Guide</button>
-        <button>Preview</button>
+        <button on:click={()=> showGuide = true }>User Guide</button>
+        <button on:click={()=> showPreview = true }>Preview</button>
     </div>
 </header>
+
+{#if showGuide}
+    <Popup title="User Guide" on:close="{()=> showGuide = false }" size="small">
+        <div class="text">
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        </div>
+    </Popup>
+{/if}
+
+{#if showPreview}
+    <Popup title="Live Preview" on:close="{()=> showPreview = false }" top="200" left="200">
+        <div class="text">
+            <h2>Generating...</h2>
+        </div>
+    </Popup>
+{/if}
 
 <slot />
 
@@ -30,4 +52,7 @@
 	h1 {
 		font-size: 2rem;
 	}
+    .padding {
+        padding: 0.5rem;
+    }
 </style>
