@@ -36,3 +36,37 @@ button {
         content: ']';
     }
 }
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    > div {
+        padding: 1rem;
+        flex: 1 0 25%;
+    }
+    $columns: 8;
+    .col-1 {    
+        flex-basis: #{ 100% / $columns * 1 };
+    }
+    .col-2 {    
+        flex-basis: #{ 100% / $columns * 2 };
+    }
+    .col-3 {    
+        flex-basis: #{ 100% / $columns * 3 };
+    }
+    .col-4 {    
+        flex-basis: #{ 100% / $columns * 4 };
+    }
+    .col-5 {    
+        flex-basis: #{ 100% / $columns * 5 };
+    }
+    .col-6 {    
+        flex-basis: #{ 100% / $columns * 6 };
+    }
+    .col-7 {    
+        flex-basis: #{ 100% / $columns * 7 };
+    }
+    .col-8 {    
+        flex-basis: #{ 100% / $columns * 8 };
+    }
+}

@@ -1,26 +1,21 @@
 <script>
 
     import Slider from '$lib/Slider.svelte';
+    import { randomInt } from '$lib/helpers.js';
  
     export let options = [];
 
 </script>
 
-<section>
+<section class="grid">
 
     {#each options as option}
-        <Slider {...option} />
+        <div class="col-{option.width}">
+            <Slider {...option} />
+        </div>
     {/each}
 
 </section>
 
 <style lang="scss">
-
-    section {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-        margin-top: 0.5rem;
-    }
-
 </style>

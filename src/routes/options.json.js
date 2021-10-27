@@ -3,13 +3,17 @@ import fs from "fs";
 import YAML from 'yaml';
 import { randomInt } from '$lib/helpers.js';
 
-const defaults = {
-    label: 'Slider',
-    type: 'slider',
-    min: 0,
-    max: 100,
-    from: '',
-    to: '',
+function defaults(){
+    return {
+        label: 'Slider',
+        type: 'slider',
+        min: 0,
+        max: 100,
+        value: randomInt(0,100),
+        width: randomInt(1,3),
+        from: '',
+        to: ''
+    }
 };
 
 function readFile(fileName){
@@ -20,8 +24,9 @@ function readFile(fileName){
 };
 
 function validateField( field, id = undefined ){
+
     field = {
-        ...defaults,
+        ...defaults(),
         ...field
     };
 
@@ -41,9 +46,6 @@ function validateField( field, id = undefined ){
     */
     field.min = 0;
     field.max = 100;
-    if( !('value' in field) ){
-        field.value = randomInt( field.min, field.max );
-    }
 
     return field;
 }
