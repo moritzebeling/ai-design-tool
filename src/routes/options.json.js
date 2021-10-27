@@ -1,10 +1,7 @@
 import path from "path";
 import fs from "fs";
 import YAML from 'yaml';
-
-function randomInt(min = 0, max = 100) {
-    return Math.floor(Math.random() * (max - min) ) + min;
-}
+import { randomInt } from '$lib/helpers.js';
 
 const defaults = {
     label: 'Slider',
@@ -15,7 +12,7 @@ const defaults = {
     to: '',
 };
 
-function getPost(fileName){
+function readFile(fileName){
     return fs.readFileSync(
         path.resolve("settings/", fileName),
         "utf-8"
@@ -40,8 +37,10 @@ function validateField( field, id = undefined ){
     }
     
     /*
-    value
+    min, max, value
     */
+    field.min = 0;
+    field.max = 100;
     if( !('value' in field) ){
         field.value = randomInt( field.min, field.max );
     }
@@ -60,7 +59,7 @@ function validateFields( fields ){
 
 export async function get({params}) {
 
-    const file = getPost(`options.yml`);
+    const file = readFile(`options.yml`);
     let data = YAML.parse(file);
 
     fields = validateFields( data );

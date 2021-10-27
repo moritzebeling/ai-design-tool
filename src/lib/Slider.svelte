@@ -1,8 +1,11 @@
 <script>
 
+    import { onMount } from 'svelte';
     import { slide } from 'svelte/transition';
     import Group from '$lib/Group.svelte';
+    import { Animation } from '$lib/SliderAnimation.js';
 
+    export let id;
     export let label = "Slider";
     export let min = 0;
     export let max = 100;
@@ -12,6 +15,14 @@
     export let options = [];
 
     let showOptions = false;
+
+    let anim, element;
+    onMount(()=>{
+        anim = new Animation( element, min, max, value );
+        return ()=>{
+            anim.destroy();
+        }
+    });
 
 </script>
 
@@ -24,7 +35,7 @@
         {/if}
     </div>
 
-    <input type="range" {min} {max} {value} on:change={onchange}>
+    <input {id} type="range" bind:this={element} {min} {max} {value} step="0.1" on:change={onchange}>
 
     <div class="labels">
         <label>{from}</label>
