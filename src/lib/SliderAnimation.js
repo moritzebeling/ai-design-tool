@@ -17,7 +17,7 @@ export class Animation {
         if(!this.active){
             return;
         }
-        let wait = randomInt(1000, 2000);
+        let wait = randomInt(1000, 25000);
         await this.timeout( wait );
         if(this.active){
             this.start();
@@ -30,14 +30,10 @@ export class Animation {
     }
     async animate(){
         let delta = this.element.value - this.target;
-        // 80 - 40 = 40
-        // 40 - 80 = -40
         if( delta > 0 ){
-            console.log('reduce');
-            this.element.value -= 0.5;
+            this.element.value--;
         } else if( delta < 0 ) {
-            console.log('increase');
-            this.element.value += 0.5;
+            this.element.value++;
         }
         if( Math.abs(delta) > 1 ){
             let context = this;
