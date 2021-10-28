@@ -1,16 +1,26 @@
 <script>
 
-    import { createEventDispatcher } from 'svelte';
+    import { randomInt } from '$lib/helpers.js';
+    import { popupZ } from '$lib/popupStore.js';
+
+    import { onMount, createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
  
     export let title = 'Details';
     export let size = 'medium';
-    export let top = 100;
-    export let left = 100;
+    export let top = randomInt( 100, 400 );
+    export let left = randomInt( 100, 400 );
+
+    export let zindex = $popupZ;
+    onMount(()=>{
+        popupZ.update(z => z + 1);
+    });
 
     let dragging = false;
     function onMouseDown() {
-		dragging = true;
+        dragging = true;
+        zindex = $popupZ;
+        popupZ.update(z => z + 1);
 	}
 	function onMouseMove(e) {
 		if (dragging) {
@@ -26,7 +36,7 @@
 
 <svelte:window on:mouseup={onMouseUp} on:mousemove={onMouseMove} />
 
-<aside class="size-{size}" style="top:{top}px;left:{left}px;">
+<aside class="size-{size}" style="top:{top}px;left:{left}px;z-index:{zindex};">
     <header>
         <div class="bar" on:mousedown={onMouseDown}>
             <h2>{title}</h2>
@@ -51,8 +61,9 @@
         max-height: 66vh;
         overflow-y: auto;
         background: $background;
-        box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+        box-shadow: 0 0 20px rgba(255,255,255,0.5);
         border: $border;
+        border-radius: 1rem;
         &.size-small {
             width: 33vw;
         }
@@ -65,7 +76,7 @@
         border-bottom: $border;
         display: flex;
         > div {
-            padding: 0.5rem;
+            padding: 0.5rem 1rem;
         }
         .bar {
             flex: 1;
