@@ -40,7 +40,6 @@
                 {:else}
                     +
                 {/if}
-                {options.type}
             </button>
         {/if}
     </div>

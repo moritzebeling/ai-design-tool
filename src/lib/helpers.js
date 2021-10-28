@@ -26,6 +26,7 @@ export function randomVideo(){
         'alert.mp4',
         'circle.mp4',
         'eclectic.mp4',
+        'hexagon.mp4',
         'grid.mp4',
         'line.mp4',
         'y.mp4',
