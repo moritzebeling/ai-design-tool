@@ -5,7 +5,7 @@
     import { Animation } from '$lib/SliderAnimation.js';
     import Popup from '$lib/Popup.svelte';
     import Group from '$lib/Group.svelte';
-    import { randomItem } from './helpers.js';
+    import { randomItem, randomColor } from './helpers.js';
 
     export let id;
     export let label = "Slider";
@@ -15,8 +15,6 @@
     export let from = 'From';
     export let to = 'To';
     export let options = [];
-
-    export let color = '#00f';
 
     let showOptions = false;
 
@@ -30,7 +28,7 @@
 
 </script>
 
-<div class="field" style="--color:{color};">
+<div class="field">
 
     <div class="title">
         <label for={id}>{label}</label>
@@ -53,7 +51,7 @@
     </div>
 
     {#if showOptions && options.length > 0}
-        <Popup title="{label} Options" on:close="{()=> showOptions = false }">
+        <Popup title="{label} Options" on:close="{()=> showOptions = false }" color={randomColor()}>
             <Group {options} />
         </Popup>
     {/if}
@@ -74,9 +72,14 @@
             @include font-bold;
         }
     }
+    label {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
     .labels {
         display: flex;
         justify-content: space-between;
+        white-space: nowrap;
         label + label {
             text-align: right;
         }
@@ -97,7 +100,7 @@
             top: 50%;
             height: 2px;
             width: 100%;
-            background: $color1;
+            background: var(--color1);
             z-index: -1;
         }
     }
@@ -107,16 +110,16 @@
         appearance: none;
         width: 3rem;
         height: 3rem;
-        background: #FF99FF;
-        background: radial-gradient(50% 50% at 50% 50%, #FF99FF 10%, rgba(255, 153, 255, 0.572917) 27.6%, rgba(255, 153, 255, 0) 100%);
+        background: $color2;
+        background: radial-gradient(50% 50% at 50% 50%, $color2 10%, rgb($color2, 60%) 30%, rgb($color2, 0%) 100%);
         cursor: pointer;
     }
     input::-moz-range-thumb {
         width: 3rem;
         height: 3rem;
         border-radius: 2rem;
-        background: #FF99FF;
-        background: radial-gradient(50% 50% at 50% 50%, #FF99FF 10%, rgba(255, 153, 255, 0.572917) 27.6%, rgba(255, 153, 255, 0) 100%);
+        background: $color2;
+        background: radial-gradient(50% 50% at 50% 50%, $color2 10%, rgb($color2, 60%) 30%, rgb($color2, 0%) 100%);
         cursor: pointer;
     }
 

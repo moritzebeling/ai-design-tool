@@ -1,7 +1,7 @@
 <script>
 
     import Slider from '$lib/Slider.svelte';
-    import { randomInt } from '$lib/helpers.js';
+    import { randomInt, randomColor } from '$lib/helpers.js';
  
     export let options = [];
 

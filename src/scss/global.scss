@@ -2,9 +2,9 @@
 @import 'mixins';
 
 :root {
-    --color1: $color1;
-    --color2: $color2;
-    --color3: $color3;
+    --color1: #{$color1};
+    --color2: #{$color2};
+    --color3: #{$color3};
 }
 
 html {
