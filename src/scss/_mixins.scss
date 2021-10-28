@@ -7,7 +7,7 @@ $color3: #FF7E6A;
 $border: 2px solid $color1;
 
 @mixin font-regular {
-    font-family: 'IBM Plex Sans', monospace;
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 @mixin font-bold {
     font-weight: 700;

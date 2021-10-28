@@ -84,7 +84,7 @@
     input {
         -webkit-appearance: none;
         width: 100%;
-        height: 2rem;
+        height: 0.5rem;
         margin: 0;
         outline: none;
         -webkit-transition: .2s;
@@ -108,7 +108,7 @@
         width: 3rem;
         height: 3rem;
         background: #FF99FF;
-        background: radial-gradient(50% 50% at 50% 50%, #FF99FF 0%, rgba(255, 153, 255, 0.572917) 27.6%, rgba(255, 153, 255, 0) 100%);
+        background: radial-gradient(50% 50% at 50% 50%, #FF99FF 10%, rgba(255, 153, 255, 0.572917) 27.6%, rgba(255, 153, 255, 0) 100%);
         cursor: pointer;
     }
     input::-moz-range-thumb {
@@ -116,7 +116,7 @@
         height: 3rem;
         border-radius: 2rem;
         background: #FF99FF;
-        background: radial-gradient(50% 50% at 50% 50%, #FF99FF 0%, rgba(255, 153, 255, 0.572917) 27.6%, rgba(255, 153, 255, 0) 100%);
+        background: radial-gradient(50% 50% at 50% 50%, #FF99FF 10%, rgba(255, 153, 255, 0.572917) 27.6%, rgba(255, 153, 255, 0) 100%);
         cursor: pointer;
     }
 

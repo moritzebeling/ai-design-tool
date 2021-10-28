@@ -87,7 +87,7 @@
         <svelte:component this={Spinner} size="300" unit="px" {color} />
     </main>
     <footer>
-        <h3>Live preivew is generating</h3>
+        <h3>Live preview is generating...</h3>
     </footer>
 </div>
 

@@ -43,6 +43,12 @@ button {
     }
 }
 
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .grid {
     display: flex;
     flex-wrap: wrap;

@@ -31,7 +31,7 @@
 <style lang="scss">
 
     main {
-        margin: 1rem;
+		margin-bottom: 2rem;
     }
 
 </style>
