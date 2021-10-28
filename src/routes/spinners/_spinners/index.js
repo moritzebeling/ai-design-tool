@@ -23,4 +23,3 @@ import Plane from "./Plane.svelte";
 import Diamonds from "./Diamonds.svelte";
 import Clock from "./Clock.svelte";
 export { Circle, Circle2, Circle3, DoubleBounce, GoogleSpin, ScaleOut, SpinLine, Stretch, BarLoader, Jumper, RingLoader, SyncLoader, Rainbow, Wave, Firework, Pulse, Jellyfish, Chasing, Shadow, Square, Moon, Plane, Diamonds, Clock };
-//# sourceMappingURL=index.js.map

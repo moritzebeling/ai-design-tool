@@ -8,6 +8,7 @@
 <script>
 
     import { onMount } from 'svelte';
+    import { randomItem, randomColor, randomInt } from '$lib/helpers.js';
 
     import { BarLoader } from './_spinners/index.js';
     import { Chasing } from './_spinners/index.js';
@@ -53,35 +54,28 @@
         Moon,
     ];
 
-    let colors = [
-        '#F1F1F1',
-        '#86ACFF',
-        '#905EFF',
-        '#60E3E2',
-        '#78FFA8',
-        '#FF7E6A',
-        '#FF99FF'
-    ];
+    let Spinner = randomItem( spinners );
+    let color = randomColor();
 
-    function select( arr ){
-        return arr[Math.floor(Math.random()*arr.length)];
+    function interval(){
+        Spinner = randomItem( spinners );
+        color = randomColor();
+        setTimeout(() => {
+            interval();
+        }, randomInt(2500,7500));
     }
 
-    let Spinner = select( spinners );
-    let color = select( colors );
-
     onMount(()=>{
-        setInterval(() => {
-            Spinner = select( spinners );
-            color = select( colors );
-        }, 7500);
+        interval();
     });
 
 </script>
      
 <div class="wrapper">
     <header>
-        <h1>SEMI*</h1>
+        <h1>
+            <img src="/semi-logo.svg" width="241" height="84" />
+        </h1>
     </header>
     <main>
         <svelte:component this={Spinner} size="300" unit="px" {color} />
@@ -105,7 +99,10 @@
         text-align: center;
     }
     h1 {
-        font-size: 8rem;
+        img {
+            width: 40%;
+            height: auto;
+        }
     }
     footer {
         font-size: 2rem;
