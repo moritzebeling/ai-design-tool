@@ -5,7 +5,8 @@
     import { Animation } from '$lib/SliderAnimation.js';
     import Popup from '$lib/Popup.svelte';
     import Group from '$lib/Group.svelte';
-    import { randomItem, randomColor } from './helpers.js';
+    import Video from '$lib/Video.svelte';
+    import { randomItem, randomColor, randomOptions } from './helpers.js';
 
     export let id;
     export let label = "Slider";
@@ -14,8 +15,8 @@
     export let value = 0;
     export let from = 'From';
     export let to = 'To';
-    export let options = [];
-
+    export let options = randomOptions();
+    
     let showOptions = false;
 
     let anim, element;
@@ -32,13 +33,14 @@
 
     <div class="title">
         <label for={id}>{label}</label>
-        {#if options.length > 0}
+        {#if options !== false}
             <button on:click={()=>showOptions = !showOptions}>
                 {#if showOptions}
                     –
                 {:else}
                     +
                 {/if}
+                {options.type}
             </button>
         {/if}
     </div>
@@ -50,10 +52,16 @@
         <label>{to}</label>
     </div>
 
-    {#if showOptions && options.length > 0}
-        <Popup title="{label} Options" on:close="{()=> showOptions = false }" color={randomColor()}>
-            <Group {options} />
-        </Popup>
+    {#if showOptions && options !== false}
+        {#if options.type === 'sliders'}
+                <Popup title="{label} Options" on:close="{()=> showOptions = false }" color={randomColor()}>
+                    <Group options={options.sliders} />
+                </Popup>
+        {:else if options.type === 'video'}
+            <Popup title="{label} Options" on:close="{()=> showOptions = false }" color={randomColor()} size="small">
+                <Video {options} />
+            </Popup>
+        {/if}
     {/if}
 
 </div>

@@ -4,6 +4,7 @@
     import { randomInt, randomColor } from '$lib/helpers.js';
  
     export let options = [];
+    console.log( options );
 
 </script>
 

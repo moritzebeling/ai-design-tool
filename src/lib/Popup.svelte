@@ -9,8 +9,8 @@
     export let title = 'Details';
     export let size = 'medium';
     export let color = '';
-    export let top = randomInt( 100, 400 );
-    export let left = randomInt( 100, 400 );
+    export let top = randomInt( 50, 300 );
+    export let left = randomInt( 50, 450 );
 
     console.log( color );
 

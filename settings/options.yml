@@ -6,6 +6,9 @@
   label: fauna
   from: floral
   to: rockery
+  options:
+    type: video
+    video: circle.mp4
 -
   label: interior
   from: niche
