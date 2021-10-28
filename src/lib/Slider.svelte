@@ -64,8 +64,7 @@
 
     .field {
         width: 100%;
-        border-top: 1px solid $light;
-        padding-top: 1.5rem;
+        padding-top: 1rem;
     }
     .title {
         display: flex;
@@ -91,8 +90,6 @@
         -webkit-transition: .2s;
         transition: opacity .2s;
         position: relative;
-        border-left: 2px solid var(--color);
-        border-right: 2px solid var(--color);
         margin: 1rem 0;
         &:after {
             content: '';
@@ -108,16 +105,18 @@
         -webkit-appearance: none;
         border-radius: 2rem;
         appearance: none;
-        width: 2rem;
-        height: 2rem;
-        background: var(--color);
+        width: 3rem;
+        height: 3rem;
+        background: #FF99FF;
+        background: radial-gradient(50% 50% at 50% 50%, #FF99FF 0%, rgba(255, 153, 255, 0.572917) 27.6%, rgba(255, 153, 255, 0) 100%);
         cursor: pointer;
     }
     input::-moz-range-thumb {
-        width: 2rem;
-        height: 2rem;
+        width: 3rem;
+        height: 3rem;
         border-radius: 2rem;
-        background: var(--color);
+        background: #FF99FF;
+        background: radial-gradient(50% 50% at 50% 50%, #FF99FF 0%, rgba(255, 153, 255, 0.572917) 27.6%, rgba(255, 153, 255, 0) 100%);
         cursor: pointer;
     }
 

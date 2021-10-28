@@ -1,12 +1,13 @@
 $background: #000;
-$light: #000;
-$color1: #fff;
-$color2: #00f;
+
+$color1: #78FFA8;
+$color2: #905EFF;
+$color3: #FF7E6A;
 
 $border: 2px solid $color1;
 
 @mixin font-regular {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'IBM Plex Sans', monospace;
 }
 @mixin font-bold {
     font-weight: 700;

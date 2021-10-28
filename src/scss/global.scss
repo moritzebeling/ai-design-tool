@@ -1,8 +1,14 @@
 @import 'reset';
 @import 'mixins';
 
+:root {
+    --color1: $color1;
+    --color2: $color2;
+    --color3: $color3;
+}
+
 html {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 body {
