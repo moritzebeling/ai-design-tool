@@ -5,6 +5,7 @@
     import { Animation } from '$lib/SliderAnimation.js';
     import Popup from '$lib/Popup.svelte';
     import Group from '$lib/Group.svelte';
+    import { randomItem } from './helpers.js';
 
     export let id;
     export let label = "Slider";
@@ -14,6 +15,8 @@
     export let from = 'From';
     export let to = 'To';
     export let options = [];
+
+    export let color = '#00f';
 
     let showOptions = false;
 
@@ -27,7 +30,7 @@
 
 </script>
 
-<div class="field">
+<div class="field" style="--color:{color};">
 
     <div class="title">
         <label for={id}>{label}</label>
@@ -88,8 +91,8 @@
         -webkit-transition: .2s;
         transition: opacity .2s;
         position: relative;
-        border-left: 2px solid $color2;
-        border-right: 2px solid $color2;
+        border-left: 2px solid var(--color);
+        border-right: 2px solid var(--color);
         margin: 1rem 0;
         &:after {
             content: '';
@@ -107,14 +110,14 @@
         appearance: none;
         width: 2rem;
         height: 2rem;
-        background: $color2;
+        background: var(--color);
         cursor: pointer;
     }
     input::-moz-range-thumb {
         width: 2rem;
         height: 2rem;
         border-radius: 2rem;
-        background: $color2;
+        background: var(--color);
         cursor: pointer;
     }
 

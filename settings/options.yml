@@ -1,29 +1,4 @@
 -
-  label: Option 1
-  from: a
-  to: b
-  options:
-    -
-      label: Option
-    -
-      label: Option
-    -
-      label: Option
-    -
-      label: Option
-    -
-      label: Option
-    -
-      label: Option
-    -
-      label: Option
-    -
-      label: Option
-    -
-      label: Option
-    -
-      label: Option
--
   label: light situation
   from: dimmed
   to: spotlight
@@ -53,7 +28,6 @@
   label: childhood mood
   from: playground
   to: math homework
-
 -
   label: alert level
   from: push notification
@@ -128,10 +102,6 @@
   label: sleekness
   from: silk
   to: alpaka wool
--
-  label: clearness
-  from: migraine
-  to: pharmaceutic
 -
   label: clearness
   from: migraine

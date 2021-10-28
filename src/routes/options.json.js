@@ -1,9 +1,9 @@
 import path from "path";
 import fs from "fs";
 import YAML from 'yaml';
-import { randomInt } from '$lib/helpers.js';
+import { randomInt, shuffleArray } from '$lib/helpers.js';
 
-function defaults(){
+function defaultField(){
     return {
         label: 'Slider',
         type: 'slider',
@@ -16,6 +16,44 @@ function defaults(){
     }
 };
 
+function defaultFields(){
+    let labels = shuffleArray([
+        'Gain',
+        'Excess',
+        'Path',
+        'Control',
+        'Level',
+        'Depth',
+        'Amount',
+        'Sigma',
+        'Traction',
+        'Offset',
+        'Detail',
+        'Alpha',
+        'Beta',
+        'Value',
+        'Smooth',
+        'Rollover',
+        'Size',
+        'Connection',
+        'Stream',
+        'X',
+        'Y',
+        'Z',
+        'Space',
+        'Opacity',
+        'Clearance',
+        'Liquidity'
+    ]).slice( 0, randomInt(1,4) * 2 );
+    let fields = [];
+    for (const label of labels) {
+        fields.push({
+            label: label
+        });
+    }
+    return validateFields( fields );
+};
+
 function readFile(fileName){
     return fs.readFileSync(
         path.resolve("settings/", fileName),
@@ -26,7 +64,7 @@ function readFile(fileName){
 function validateField( field, id = undefined ){
 
     field = {
-        ...defaults(),
+        ...defaultField(),
         ...field
     };
 
@@ -46,6 +84,15 @@ function validateField( field, id = undefined ){
     */
     field.min = 0;
     field.max = 100;
+
+    /*
+    options
+    */
+    if( 'options' in field ){
+        field.options = validateFields( field.options );
+    } else if( Math.random() > 0.8 ) {
+        field.options = defaultFields();
+    }
 
     return field;
 }

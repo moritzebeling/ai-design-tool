@@ -48,7 +48,6 @@
         left: 10vw;
         width: 50vw;
         z-index: 10;
-        min-height: 33vh;
         max-height: 66vh;
         overflow-y: auto;
         background: $background;
