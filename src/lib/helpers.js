@@ -39,6 +39,7 @@ export function randomOptions(){
     }
     const type = randomItem([
         'sliders',
+        'sliders',
         'video',
     ]);
     switch (type) {

@@ -9,10 +9,8 @@
     export let title = 'Details';
     export let size = 'medium';
     export let color = '';
-    export let top = randomInt( 50, 300 );
-    export let left = randomInt( 50, 450 );
-
-    console.log( color );
+    export let top = randomInt( 50, 400 );
+    export let left = randomInt( 50, 550 );
 
     export let zindex = $popupZ;
     onMount(()=>{
@@ -37,7 +35,7 @@
 
 </script>
 
-<svelte:window on:mouseup={onMouseUp} on:mousemove={onMouseMove} />
+<svelte:window on:mouseup={onMouseUp} on:mousemove|passive={onMouseMove} />
 
 <aside class="size-{size}" style="top:{top}px;left:{left}px;z-index:{zindex};{color ? `--color1:${color};` : ''}">
     <header>
@@ -69,7 +67,7 @@
         border-radius: 1rem;
         color: var(--color1);
         &.size-small {
-            width: 33vw;
+            width: 25vw;
         }
         &.size-large {
             width: 66vw;

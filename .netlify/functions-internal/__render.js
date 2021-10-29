@@ -5149,13 +5149,13 @@ ${offset}${err}${errEnd}`;
           context: {
             src: src2
           },
-          range,
+          range: range2,
           value
         } = this;
         if (value != null)
           return value;
-        const str = src2.slice(range.start, range.end);
-        return Node.addStringTerminator(src2, range.end, str);
+        const str = src2.slice(range2.start, range2.end);
+        return Node.addStringTerminator(src2, range2.end, str);
       }
     };
     var YAMLError = class extends Error {
@@ -5484,13 +5484,13 @@ var require_parse_cst = __commonJS({
             src: src2
           },
           node,
-          range,
+          range: range2,
           value
         } = this;
         if (value != null)
           return value;
-        const str = node ? src2.slice(range.start, node.range.start) + String(node) : src2.slice(range.start, range.end);
-        return PlainValue.Node.addStringTerminator(src2, range.end, str);
+        const str = node ? src2.slice(range2.start, node.range.start) + String(node) : src2.slice(range2.start, range2.end);
+        return PlainValue.Node.addStringTerminator(src2, range2.end, str);
       }
     };
     var Comment = class extends PlainValue.Node {
@@ -5702,12 +5702,12 @@ var require_parse_cst = __commonJS({
             src: src2
           },
           items,
-          range,
+          range: range2,
           value
         } = this;
         if (value != null)
           return value;
-        let str = src2.slice(range.start, items[0].range.start) + String(items[0]);
+        let str = src2.slice(range2.start, items[0].range.start) + String(items[0]);
         for (let i = 1; i < items.length; ++i) {
           const item = items[i];
           const {
@@ -5719,7 +5719,7 @@ var require_parse_cst = __commonJS({
               str += " ";
           str += String(item);
         }
-        return PlainValue.Node.addStringTerminator(src2, range.end, str);
+        return PlainValue.Node.addStringTerminator(src2, range2.end, str);
       }
     };
     var Directive = class extends PlainValue.Node {
@@ -6319,14 +6319,14 @@ var require_parse_cst = __commonJS({
             src: src2
           },
           items,
-          range,
+          range: range2,
           value
         } = this;
         if (value != null)
           return value;
         const nodes = items.filter((item) => item instanceof PlainValue.Node);
         let str = "";
-        let prevEnd = range.start;
+        let prevEnd = range2.start;
         nodes.forEach((node) => {
           const prefix = src2.slice(prevEnd, node.range.start);
           prevEnd = node.range.end;
@@ -6335,8 +6335,8 @@ var require_parse_cst = __commonJS({
             prevEnd += 1;
           }
         });
-        str += src2.slice(prevEnd, range.end);
-        return PlainValue.Node.addStringTerminator(src2, range.end, str);
+        str += src2.slice(prevEnd, range2.end);
+        return PlainValue.Node.addStringTerminator(src2, range2.end, str);
       }
     };
     var QuoteDouble = class extends PlainValue.Node {
@@ -7251,7 +7251,7 @@ ${ctx.indent}`;
     };
     var Alias = class extends Node {
       static stringify({
-        range,
+        range: range2,
         source
       }, {
         anchors,
@@ -7265,7 +7265,7 @@ ${ctx.indent}`;
         if (anchor)
           return `*${anchor}${implicitKey ? " " : ""}`;
         const msg = doc.anchors.getName(source) ? "Alias node must be after source node" : "Source node not found for alias node";
-        throw new Error(`${msg} [${range}]`);
+        throw new Error(`${msg} [${range2}]`);
       }
       constructor(source) {
         super();
@@ -11709,7 +11709,7 @@ function add_attribute(name, value, boolean) {
 }
 function afterUpdate() {
 }
-var css$3 = {
+var css$q = {
   code: "#svelte-announcer.svelte-u7bl1d{position:absolute;left:0;top:0;clip:rect(0 0 0 0);clip-path:inset(50%);overflow:hidden;white-space:nowrap;width:1px;height:1px}",
   map: null
 };
@@ -11734,7 +11734,7 @@ var Root = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     $$bindings.props_1(props_1);
   if ($$props.props_2 === void 0 && $$bindings.props_2 && props_2 !== void 0)
     $$bindings.props_2(props_2);
-  $$result.css.add(css$3);
+  $$result.css.add(css$q);
   {
     stores.page.set(page);
   }
@@ -11772,9 +11772,9 @@ function init(settings = default_settings) {
     amp: false,
     dev: false,
     entry: {
-      file: assets + "/_app/start-c2812888.js",
+      file: assets + "/_app/start-36f142f7.js",
       css: [assets + "/_app/assets/start-808c0b29.css"],
-      js: [assets + "/_app/start-c2812888.js", assets + "/_app/chunks/vendor-4e2a1459.js"]
+      js: [assets + "/_app/start-36f142f7.js", assets + "/_app/chunks/vendor-5bc0e481.js"]
     },
     fetched: void 0,
     floc: false,
@@ -11803,7 +11803,7 @@ function init(settings = default_settings) {
 }
 var empty = () => ({});
 var manifest = {
-  assets: [{ "file": "favicon.ico", "size": 1976, "type": "image/vnd.microsoft.icon" }, { "file": "favicon.png", "size": 1976, "type": "image/png" }],
+  assets: [{ "file": ".DS_Store", "size": 6148, "type": null }, { "file": "favicon.ico", "size": 1976, "type": "image/vnd.microsoft.icon" }, { "file": "favicon.png", "size": 1976, "type": "image/png" }, { "file": "semi-logo.svg", "size": 7359, "type": "image/svg+xml" }, { "file": "videos/alert.mp4", "size": 181409, "type": "video/mp4" }, { "file": "videos/circle.mp4", "size": 138193, "type": "video/mp4" }, { "file": "videos/eclectic.mp4", "size": 747714, "type": "video/mp4" }, { "file": "videos/grid.mp4", "size": 407832, "type": "video/mp4" }, { "file": "videos/hexagon.mp4", "size": 186386, "type": "video/mp4" }, { "file": "videos/line.mp4", "size": 276769, "type": "video/mp4" }, { "file": "videos/y.mp4", "size": 158510, "type": "video/mp4" }],
   layout: "src/routes/__layout.svelte",
   error: ".svelte-kit/build/components/error.svelte",
   routes: [
@@ -11821,6 +11821,20 @@ var manifest = {
       load: () => Promise.resolve().then(function() {
         return options_json;
       })
+    },
+    {
+      type: "page",
+      pattern: /^\/spinners\/?$/,
+      params: empty,
+      a: ["src/routes/spinners/__layout.reset.svelte", "src/routes/spinners/index.svelte"],
+      b: []
+    },
+    {
+      type: "page",
+      pattern: /^\/preview\/?$/,
+      params: empty,
+      a: ["src/routes/preview/__layout.reset.svelte", "src/routes/preview/index.svelte"],
+      b: []
     }
   ]
 };
@@ -11838,10 +11852,22 @@ var module_lookup = {
     return error;
   }),
   "src/routes/index.svelte": () => Promise.resolve().then(function() {
+    return index$2;
+  }),
+  "src/routes/spinners/__layout.reset.svelte": () => Promise.resolve().then(function() {
+    return __layout_reset$1;
+  }),
+  "src/routes/spinners/index.svelte": () => Promise.resolve().then(function() {
+    return index$1;
+  }),
+  "src/routes/preview/__layout.reset.svelte": () => Promise.resolve().then(function() {
+    return __layout_reset;
+  }),
+  "src/routes/preview/index.svelte": () => Promise.resolve().then(function() {
     return index;
   })
 };
-var metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-cdbecb05.js", "css": ["assets/pages/__layout.svelte-45f87532.css"], "js": ["pages/__layout.svelte-cdbecb05.js", "chunks/vendor-4e2a1459.js"], "styles": [] }, ".svelte-kit/build/components/error.svelte": { "entry": "error.svelte-8ebe837f.js", "css": [], "js": ["error.svelte-8ebe837f.js", "chunks/vendor-4e2a1459.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-6e83bd2f.js", "css": ["assets/pages/index.svelte-30cd3299.css"], "js": ["pages/index.svelte-6e83bd2f.js", "chunks/vendor-4e2a1459.js"], "styles": [] } };
+var metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-bc121b59.js", "css": ["assets/pages/__layout.svelte-fd95b7dc.css", "assets/global-4db7817a.css", "assets/Popup-7d85c9fa.css", "assets/Spinner-3d7d3e40.css"], "js": ["pages/__layout.svelte-bc121b59.js", "chunks/vendor-5bc0e481.js", "chunks/Popup-0fc4fff9.js", "chunks/helpers-e7761bd3.js", "chunks/Spinner-2cdf84f5.js"], "styles": [] }, ".svelte-kit/build/components/error.svelte": { "entry": "error.svelte-a4b0491e.js", "css": [], "js": ["error.svelte-a4b0491e.js", "chunks/vendor-5bc0e481.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-06a0e5e1.js", "css": ["assets/pages/index.svelte-89672b79.css", "assets/Popup-7d85c9fa.css"], "js": ["pages/index.svelte-06a0e5e1.js", "chunks/vendor-5bc0e481.js", "chunks/helpers-e7761bd3.js", "chunks/Popup-0fc4fff9.js"], "styles": [] }, "src/routes/spinners/__layout.reset.svelte": { "entry": "pages/spinners/__layout.reset.svelte-fd24f10d.js", "css": ["assets/global-4db7817a.css"], "js": ["pages/spinners/__layout.reset.svelte-fd24f10d.js", "chunks/vendor-5bc0e481.js"], "styles": [] }, "src/routes/spinners/index.svelte": { "entry": "pages/spinners/index.svelte-0b58234d.js", "css": ["assets/pages/spinners/index.svelte-f02e02f4.css"], "js": ["pages/spinners/index.svelte-0b58234d.js", "chunks/vendor-5bc0e481.js", "chunks/helpers-e7761bd3.js"], "styles": [] }, "src/routes/preview/__layout.reset.svelte": { "entry": "pages/preview/__layout.reset.svelte-19f1422e.js", "css": [], "js": ["pages/preview/__layout.reset.svelte-19f1422e.js", "chunks/vendor-5bc0e481.js"], "styles": [] }, "src/routes/preview/index.svelte": { "entry": "pages/preview/index.svelte-19cf5286.js", "css": ["assets/pages/preview/index.svelte-c51049a9.css", "assets/Spinner-3d7d3e40.css"], "js": ["pages/preview/index.svelte-19cf5286.js", "chunks/vendor-5bc0e481.js", "chunks/Spinner-2cdf84f5.js"], "styles": [] } };
 async function load_component(file) {
   const { entry, css: css2, js, styles } = metadata_lookup[file];
   return {
@@ -11861,20 +11887,58 @@ function render(request, {
 function randomInt(min = 0, max = 100) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
-var defaults = {
-  label: "Slider",
-  type: "slider",
-  min: 0,
-  max: 100,
-  from: "",
-  to: ""
-};
-function readFile(fileName) {
-  return import_fs.default.readFileSync(import_path.default.resolve("settings/", fileName), "utf-8");
+function randomItem(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+function shuffleArray(arr) {
+  return arr.sort((a, b) => 0.5 - Math.random());
+}
+function randomColor(colors = false) {
+  if (colors === false) {
+    colors = [
+      "#a546ff",
+      "#78FFA8",
+      "#FF7E6A"
+    ];
+  }
+  return randomItem(colors);
+}
+function randomVideo() {
+  return randomItem([
+    "alert.mp4",
+    "circle.mp4",
+    "eclectic.mp4",
+    "hexagon.mp4",
+    "grid.mp4",
+    "line.mp4",
+    "y.mp4"
+  ]);
+}
+function randomOptions() {
+  if (Math.random() < 0.5) {
+    return false;
+  }
+  const type = randomItem([
+    "sliders",
+    "sliders",
+    "video"
+  ]);
+  switch (type) {
+    case "video":
+      return {
+        type: "video",
+        video: randomVideo()
+      };
+    case "sliders":
+      return {
+        type: "sliders",
+        sliders: defaultFields()
+      };
+  }
 }
 function validateField(field, id = void 0) {
   field = {
-    ...defaults,
+    ...defaultField(),
     ...field
   };
   if (!("id" in field)) {
@@ -11886,9 +11950,6 @@ function validateField(field, id = void 0) {
   }
   field.min = 0;
   field.max = 100;
-  if (!("value" in field)) {
-    field.value = randomInt(field.min, field.max);
-  }
   return field;
 }
 function validateFields(fields) {
@@ -11898,6 +11959,63 @@ function validateFields(fields) {
     return Object.entries(fields).map((entry) => validateField(entry[1], entry[0]));
   }
   return [];
+}
+function defaultField() {
+  return {
+    label: "Slider",
+    type: "slider",
+    min: 0,
+    max: 100,
+    value: randomInt(0, 100),
+    width: randomInt(1, 3),
+    from: "",
+    to: ""
+  };
+}
+function defaultFields() {
+  let labels = shuffleArray([
+    "Gain",
+    "Excess",
+    "Path",
+    "Control",
+    "Level",
+    "Depth",
+    "Amount",
+    "Sigma",
+    "Traction",
+    "Offset",
+    "Detail",
+    "Alpha",
+    "Semi",
+    "Double",
+    "Uniqueness",
+    "Brightness",
+    "Beta",
+    "Value",
+    "Smooth",
+    "Rollover",
+    "Size",
+    "Connection",
+    "Stream",
+    "Adjust",
+    "X",
+    "Y",
+    "Z",
+    "Space",
+    "Opacity",
+    "Clearance",
+    "Liquidity"
+  ]).slice(0, randomInt(1, 4) * 2);
+  let fields = [];
+  for (const label of labels) {
+    fields.push({
+      label
+    });
+  }
+  return validateFields(fields);
+}
+function readFile(fileName) {
+  return import_fs.default.readFileSync(import_path.default.resolve("settings/", fileName), "utf-8");
 }
 async function get({ params }) {
   const file = readFile(`options.yml`);
@@ -11912,8 +12030,32 @@ var options_json = /* @__PURE__ */ Object.freeze({
   [Symbol.toStringTag]: "Module",
   get
 });
+var css$p = {
+  code: ".wrapper.svelte-1vzkq7o{height:2em;width:2em;display:flex;justify-content:center;align-items:center;height:100%}.spinner.svelte-1vzkq7o{height:2em;width:2em;animation:svelte-1vzkq7o-rotate 2s infinite linear}.dot.svelte-1vzkq7o{width:55%;height:55%;display:inline-block;position:absolute;top:0;background-color:#a546ff;border-radius:100%;animation:svelte-1vzkq7o-bounce 2s infinite ease-in-out}@keyframes svelte-1vzkq7o-rotate{100%{transform:rotate(360deg)}}@keyframes svelte-1vzkq7o-bounce{0%,100%{transform:scale(0)}50%{transform:scale(1)}}",
+  map: null
+};
+var duration = 2;
+var Spinner = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  const range2 = (size, startAt = 0) => [...Array(size).keys()].map((i) => i + startAt);
+  $$result.css.add(css$p);
+  return `<div class="${"wrapper svelte-1vzkq7o"}"><div class="${"spinner svelte-1vzkq7o"}">${each(range2(2, 0), (version) => `<div class="${"dot svelte-1vzkq7o"}" style="${"animation-delay: " + escape(version === 1 ? `${duration / 2}s` : "0s") + "; bottom: " + escape(version === 1 ? "0" : "") + "; top: " + escape(version === 1 ? "auto" : "") + ";"}"></div>`)}</div>
+</div>`;
+});
+var css$o = {
+  code: "header.svelte-1182nsj.svelte-1182nsj{margin:1rem;display:flex;justify-content:space-between;align-items:center}h1.svelte-1182nsj img.svelte-1182nsj{height:2.5rem;width:auto}",
+  map: null
+};
 var _layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `${$$result.head += `<link rel="${"preconnect"}" href="${"https://fonts.googleapis.com"}" data-svelte="svelte-16nk7v0"><link rel="${"preconnect"}" href="${"https://fonts.gstatic.com"}" crossorigin data-svelte="svelte-16nk7v0"><link href="${"https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap"}" rel="${"stylesheet"}" data-svelte="svelte-16nk7v0">`, ""}
+  $$result.css.add(css$o);
+  return `${$$result.head += `<link rel="${"preload"}" href="${"/videos/alert.mp4"}" as="${"video"}" type="${"video/mp4"}" data-svelte="svelte-y15yo9"><link rel="${"preload"}" href="${"/videos/circle.mp4"}" as="${"video"}" type="${"video/mp4"}" data-svelte="svelte-y15yo9"><link rel="${"preload"}" href="${"/videos/eclectic.mp4"}" as="${"video"}" type="${"video/mp4"}" data-svelte="svelte-y15yo9"><link rel="${"preload"}" href="${"/videos/grid.mp4"}" as="${"video"}" type="${"video/mp4"}" data-svelte="svelte-y15yo9"><link rel="${"preload"}" href="${"/videos/hexagon.mp4"}" as="${"video"}" type="${"video/mp4"}" data-svelte="svelte-y15yo9"><link rel="${"preload"}" href="${"/videos/line.mp4"}" as="${"video"}" type="${"video/mp4"}" data-svelte="svelte-y15yo9"><link rel="${"preload"}" href="${"/videos/y.mp4"}" as="${"video"}" type="${"video/mp4"}" data-svelte="svelte-y15yo9"><link rel="${"preconnect"}" href="${"https://fonts.gstatic.com"}" crossorigin data-svelte="svelte-y15yo9"><link href="${"https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap"}" rel="${"stylesheet"}" data-svelte="svelte-y15yo9">`, ""}
+
+<header class="${"svelte-1182nsj"}"><div><h1 class="${"svelte-1182nsj"}"><img src="${"/semi-logo.svg"}" width="${"241"}" height="${"84"}" class="${"svelte-1182nsj"}"></h1></div>
+    <div><button>User Guide</button>
+        <button>Preview</button></div></header>
+
+${``}
+
+${``}
 
 ${slots.default ? slots.default({}) : ``}`;
 });
@@ -11947,8 +12089,8 @@ var error = /* @__PURE__ */ Object.freeze({
   "default": Error$1,
   load: load$1
 });
-var css$2 = {
-  code: '.field.svelte-dz348j{width:100%;border-top:1px solid #ddd;padding-top:1.5rem}.label.svelte-dz348j{margin-bottom:0.5rem}.title.svelte-dz348j{display:flex;justify-content:space-between;align-items:top}.labels.svelte-dz348j{margin-top:0.5rem;display:flex;justify-content:space-between;font-size:0.7rem}input.svelte-dz348j{-webkit-appearance:none;width:100%;height:2rem;margin:0;outline:none;-webkit-transition:0.2s;transition:opacity 0.2s;position:relative;border-left:2px solid #00f;border-right:2px solid #00f}input.svelte-dz348j:after{content:"";position:absolute;top:50%;height:2px;width:100%;background:#000;z-index:-1}input.svelte-dz348j::-webkit-slider-thumb{-webkit-appearance:none;border-radius:2rem;appearance:none;width:2rem;height:2rem;background:#00f;cursor:pointer}input.svelte-dz348j::-moz-range-thumb{width:2rem;height:2rem;border-radius:2rem;background:#00f;cursor:pointer}button.svelte-dz348j{border-radius:0;-webkit-appearance:none;-moz-appearance:none;background:transparent;outline:none;font:inherit;border:0;padding:0;margin:0;font-size:0.7rem;display:block;line-height:inherit}button.svelte-dz348j:before{content:"["}button.svelte-dz348j:after{content:"]"}',
+var css$n = {
+  code: '.field.svelte-1vbwk8d.svelte-1vbwk8d.svelte-1vbwk8d{width:100%;padding-top:1rem}.title.svelte-1vbwk8d.svelte-1vbwk8d.svelte-1vbwk8d{display:flex;justify-content:space-between;align-items:top}.title.svelte-1vbwk8d label.svelte-1vbwk8d.svelte-1vbwk8d{font-weight:700}label.svelte-1vbwk8d.svelte-1vbwk8d.svelte-1vbwk8d{white-space:nowrap;text-overflow:ellipsis}.labels.svelte-1vbwk8d.svelte-1vbwk8d.svelte-1vbwk8d{display:flex;justify-content:space-between;white-space:nowrap}.labels.svelte-1vbwk8d label.svelte-1vbwk8d+label.svelte-1vbwk8d{text-align:right}input.svelte-1vbwk8d.svelte-1vbwk8d.svelte-1vbwk8d{-webkit-appearance:none;width:100%;height:0.5rem;margin:0;outline:none;-webkit-transition:0.2s;transition:opacity 0.2s;position:relative;margin:1rem 0}input.svelte-1vbwk8d.svelte-1vbwk8d.svelte-1vbwk8d:after{content:"";position:absolute;top:50%;height:2px;width:100%;background:var(--color1);z-index:-1}input.svelte-1vbwk8d.svelte-1vbwk8d.svelte-1vbwk8d::-webkit-slider-thumb{-webkit-appearance:none;border-radius:2rem;appearance:none;width:3rem;height:3rem;background:#78FFA8;background:radial-gradient(50% 50% at 50% 50%, #78FFA8 10%, rgba(120, 255, 168, 0.6) 30%, rgba(120, 255, 168, 0) 100%);cursor:pointer}input.svelte-1vbwk8d.svelte-1vbwk8d.svelte-1vbwk8d::-moz-range-thumb{width:3rem;height:3rem;border-radius:2rem;background:#78FFA8;background:radial-gradient(50% 50% at 50% 50%, #78FFA8 10%, rgba(120, 255, 168, 0.6) 30%, rgba(120, 255, 168, 0) 100%);cursor:pointer}',
   map: null
 };
 var Slider = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -11959,7 +12101,7 @@ var Slider = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { value = 0 } = $$props;
   let { from = "From" } = $$props;
   let { to = "To" } = $$props;
-  let { options: options2 = [] } = $$props;
+  let { options: options2 = randomOptions() } = $$props;
   let element;
   if ($$props.id === void 0 && $$bindings.id && id !== void 0)
     $$bindings.id(id);
@@ -11977,38 +12119,34 @@ var Slider = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     $$bindings.to(to);
   if ($$props.options === void 0 && $$bindings.options && options2 !== void 0)
     $$bindings.options(options2);
-  $$result.css.add(css$2);
-  return `<div class="${"field svelte-dz348j"}"><div class="${"title svelte-dz348j"}"><h4 class="${"label svelte-dz348j"}">${escape(label)}</h4>
-        ${options2.length > 0 ? `<button class="${"svelte-dz348j"}">Options</button>` : ``}</div>
+  $$result.css.add(css$n);
+  return `<div class="${"field svelte-1vbwk8d"}"><div class="${"title svelte-1vbwk8d"}"><label${add_attribute("for", id, 0)} class="${"svelte-1vbwk8d"}">${escape(label)}</label>
+        ${options2 !== false ? `<button>${`+`}</button>` : ``}</div>
 
-    <input${add_attribute("id", id, 0)} type="${"range"}"${add_attribute("min", min, 0)}${add_attribute("max", max, 0)}${add_attribute("value", value, 0)} step="${"0.1"}" class="${"svelte-dz348j"}"${add_attribute("this", element, 0)}>
+    <input${add_attribute("id", id, 0)} type="${"range"}"${add_attribute("min", min, 0)}${add_attribute("max", max, 0)}${add_attribute("value", value, 0)} step="${"0.1"}" class="${"svelte-1vbwk8d"}"${add_attribute("this", element, 0)}>
 
-    <div class="${"labels svelte-dz348j"}"><label>${escape(from)}</label>
-        <label>${escape(to)}</label></div>
+    <div class="${"labels svelte-1vbwk8d"}"><label class="${"svelte-1vbwk8d"}">${escape(from)}</label>
+        <label class="${"svelte-1vbwk8d"}">${escape(to)}</label></div>
 
     ${``}
 
 </div>`;
 });
-var css$1 = {
-  code: "section.svelte-16p6xmo{display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1.5rem;margin-top:0.5rem}",
-  map: null
-};
 var Group = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { options: options2 = [] } = $$props;
   if ($$props.options === void 0 && $$bindings.options && options2 !== void 0)
     $$bindings.options(options2);
-  $$result.css.add(css$1);
-  return `<section class="${"svelte-16p6xmo"}">${each(options2, (option) => `${validate_component(Slider, "Slider").$$render($$result, Object.assign(option), {}, {})}`)}
+  return `<section class="${"grid"}">${each(options2, (option) => `<div class="${"col-" + escape(option.width)}">${validate_component(Slider, "Slider").$$render($$result, Object.assign(option), {}, {})}
+        </div>`)}
 
 </section>`;
 });
-var css = {
-  code: "header.svelte-m7udvp,main.svelte-m7udvp{margin:1rem}",
+var css$m = {
+  code: "main.svelte-zpwf0f{margin-bottom:2rem}",
   map: null
 };
-var prerender = true;
-var ssr = true;
+var prerender$2 = true;
+var ssr$2 = true;
 async function load({ page, fetch: fetch2, session, context }) {
   const res = await fetch2("options.json");
   if (res.ok) {
@@ -12019,19 +12157,567 @@ var Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { options: options2 = [] } = $$props;
   if ($$props.options === void 0 && $$bindings.options && options2 !== void 0)
     $$bindings.options(options2);
-  $$result.css.add(css);
-  return `<header class="${"svelte-m7udvp"}"><h1>SEMI*</h1></header>
-
-<main class="${"svelte-m7udvp"}">${validate_component(Group, "Group").$$render($$result, { options: options2 }, {}, {})}
+  $$result.css.add(css$m);
+  return `<main class="${"svelte-zpwf0f"}">${validate_component(Group, "Group").$$render($$result, { options: options2 }, {}, {})}
 </main>`;
+});
+var index$2 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": Routes,
+  prerender: prerender$2,
+  ssr: ssr$2,
+  load
+});
+var _layout_reset$1 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  return `${$$result.head += `<link rel="${"preconnect"}" href="${"https://fonts.googleapis.com"}" data-svelte="svelte-16yv687"><link rel="${"preconnect"}" href="${"https://fonts.gstatic.com"}" crossorigin data-svelte="svelte-16yv687"><link href="${"https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap"}" rel="${"stylesheet"}" data-svelte="svelte-16yv687">`, ""}
+
+${slots.default ? slots.default({}) : ``}`;
+});
+var __layout_reset$1 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": _layout_reset$1
+});
+var css$l = {
+  code: ".circle.svelte-yt8dah{height:var(--size);width:var(--size);border-color:var(--color) transparent var(--color) var(--color);border-width:calc(var(--size) / 15);border-style:solid;border-image:initial;border-radius:50%;animation:var(--duration) linear 0s infinite normal none running svelte-yt8dah-rotate}@keyframes svelte-yt8dah-rotate{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}",
+  map: null
+};
+var Circle = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { color = "#FF3E00" } = $$props;
+  let { unit = "px" } = $$props;
+  let { duration: duration2 = "0.75s" } = $$props;
+  let { size = "60" } = $$props;
+  if ($$props.color === void 0 && $$bindings.color && color !== void 0)
+    $$bindings.color(color);
+  if ($$props.unit === void 0 && $$bindings.unit && unit !== void 0)
+    $$bindings.unit(unit);
+  if ($$props.duration === void 0 && $$bindings.duration && duration2 !== void 0)
+    $$bindings.duration(duration2);
+  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+    $$bindings.size(size);
+  $$result.css.add(css$l);
+  return `<div class="${"circle svelte-yt8dah"}" style="${"--size: " + escape(size) + escape(unit) + "; --color: " + escape(color) + "; --duration: " + escape(duration2)}"></div>`;
+});
+var css$k = {
+  code: '.circle.svelte-tzmkx0{width:var(--size);height:var(--size);box-sizing:border-box;position:relative;border:3px solid transparent;border-top-color:var(--colorOuter);border-radius:50%;animation:svelte-tzmkx0-circleSpin var(--durationOuter) linear infinite}.circle.svelte-tzmkx0:before,.circle.svelte-tzmkx0:after{content:"";box-sizing:border-box;position:absolute;border:3px solid transparent;border-radius:50%}.circle.svelte-tzmkx0:after{border-top-color:var(--colorInner);top:9px;left:9px;right:9px;bottom:9px;animation:svelte-tzmkx0-circleSpin var(--durationInner) linear infinite}.circle.svelte-tzmkx0:before{border-top-color:var(--colorCenter);top:3px;left:3px;right:3px;bottom:3px;animation:svelte-tzmkx0-circleSpin var(--durationCenter) linear infinite}@keyframes svelte-tzmkx0-circleSpin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}',
+  map: null
+};
+var Circle2 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { size = "60" } = $$props;
+  let { unit = "px" } = $$props;
+  let { colorOuter = "#FF3E00" } = $$props;
+  let { colorCenter = "#40B3FF" } = $$props;
+  let { colorInner = "#676778" } = $$props;
+  let { durationMultiplier = 1 } = $$props;
+  let { durationOuter = `${durationMultiplier * 2}s` } = $$props;
+  let { durationInner = `${durationMultiplier * 1.5}s` } = $$props;
+  let { durationCenter = `${durationMultiplier * 3}s` } = $$props;
+  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+    $$bindings.size(size);
+  if ($$props.unit === void 0 && $$bindings.unit && unit !== void 0)
+    $$bindings.unit(unit);
+  if ($$props.colorOuter === void 0 && $$bindings.colorOuter && colorOuter !== void 0)
+    $$bindings.colorOuter(colorOuter);
+  if ($$props.colorCenter === void 0 && $$bindings.colorCenter && colorCenter !== void 0)
+    $$bindings.colorCenter(colorCenter);
+  if ($$props.colorInner === void 0 && $$bindings.colorInner && colorInner !== void 0)
+    $$bindings.colorInner(colorInner);
+  if ($$props.durationMultiplier === void 0 && $$bindings.durationMultiplier && durationMultiplier !== void 0)
+    $$bindings.durationMultiplier(durationMultiplier);
+  if ($$props.durationOuter === void 0 && $$bindings.durationOuter && durationOuter !== void 0)
+    $$bindings.durationOuter(durationOuter);
+  if ($$props.durationInner === void 0 && $$bindings.durationInner && durationInner !== void 0)
+    $$bindings.durationInner(durationInner);
+  if ($$props.durationCenter === void 0 && $$bindings.durationCenter && durationCenter !== void 0)
+    $$bindings.durationCenter(durationCenter);
+  $$result.css.add(css$k);
+  return `<div class="${"circle svelte-tzmkx0"}" style="${"--size: " + escape(size) + escape(unit) + "; --colorInner: " + escape(colorInner) + "; --colorCenter: " + escape(colorCenter) + "; --colorOuter: " + escape(colorOuter) + "; --durationInner: " + escape(durationInner) + "; --durationCenter: " + escape(durationCenter) + "; --durationOuter: " + escape(durationOuter) + ";"}"></div>`;
+});
+var css$j = {
+  code: ".wrapper.svelte-1ff8xh7{width:var(--size);height:var(--size);display:flex;justify-content:center;align-items:center;line-height:0;box-sizing:border-box}.inner.svelte-1ff8xh7{transform:scale(calc(var(--floatSize) / 52))}.ball-container.svelte-1ff8xh7{animation:svelte-1ff8xh7-ballTwo var(--duration) infinite;width:44px;height:44px;flex-shrink:0;position:relative}.single-ball.svelte-1ff8xh7{width:44px;height:44px;position:absolute}.ball.svelte-1ff8xh7{width:20px;height:20px;border-radius:50%;position:absolute;animation:svelte-1ff8xh7-ballOne var(--duration) infinite ease}.ball-top-left.svelte-1ff8xh7{background-color:var(--ballTopLeftColor);top:0;left:0}.ball-top-right.svelte-1ff8xh7{background-color:var(--ballTopRightColor);top:0;left:24px}.ball-bottom-left.svelte-1ff8xh7{background-color:var(--ballBottomLeftColor);top:24px;left:0}.ball-bottom-right.svelte-1ff8xh7{background-color:var(--ballBottomRightColor);top:24px;left:24px}@keyframes svelte-1ff8xh7-ballOne{0%{position:absolute}50%{top:12px;left:12px;position:absolute;opacity:0.5}100%{position:absolute}}@keyframes svelte-1ff8xh7-ballTwo{0%{transform:rotate(0deg) scale(1)}50%{transform:rotate(360deg) scale(1.3)}100%{transform:rotate(720deg) scale(1)}}",
+  map: null
+};
+var Circle3 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { size = "60" } = $$props;
+  let { unit = "px" } = $$props;
+  let { ballTopLeft = "#FF3E00" } = $$props;
+  let { ballTopRight = "#F8B334" } = $$props;
+  let { ballBottomLeft = "#40B3FF" } = $$props;
+  let { ballBottomRight = "#676778" } = $$props;
+  let { duration: duration2 = "1.5s" } = $$props;
+  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+    $$bindings.size(size);
+  if ($$props.unit === void 0 && $$bindings.unit && unit !== void 0)
+    $$bindings.unit(unit);
+  if ($$props.ballTopLeft === void 0 && $$bindings.ballTopLeft && ballTopLeft !== void 0)
+    $$bindings.ballTopLeft(ballTopLeft);
+  if ($$props.ballTopRight === void 0 && $$bindings.ballTopRight && ballTopRight !== void 0)
+    $$bindings.ballTopRight(ballTopRight);
+  if ($$props.ballBottomLeft === void 0 && $$bindings.ballBottomLeft && ballBottomLeft !== void 0)
+    $$bindings.ballBottomLeft(ballBottomLeft);
+  if ($$props.ballBottomRight === void 0 && $$bindings.ballBottomRight && ballBottomRight !== void 0)
+    $$bindings.ballBottomRight(ballBottomRight);
+  if ($$props.duration === void 0 && $$bindings.duration && duration2 !== void 0)
+    $$bindings.duration(duration2);
+  $$result.css.add(css$j);
+  return `<div class="${"wrapper svelte-1ff8xh7"}" style="${"--size: " + escape(size) + escape(unit) + "; --floatSize: " + escape(size) + "; --ballTopLeftColor: " + escape(ballTopLeft) + "; --ballTopRightColor: " + escape(ballTopRight) + "; --ballBottomLeftColor: " + escape(ballBottomLeft) + "; --ballBottomRightColor: " + escape(ballBottomRight) + "; --duration: " + escape(duration2) + ";"}"><div class="${"inner svelte-1ff8xh7"}"><div class="${"ball-container svelte-1ff8xh7"}"><div class="${"single-ball svelte-1ff8xh7"}"><div class="${"ball ball-top-left svelte-1ff8xh7"}">\xA0</div></div>
+      <div class="${"contener_mixte"}"><div class="${"ball ball-top-right svelte-1ff8xh7"}">\xA0</div></div>
+      <div class="${"contener_mixte"}"><div class="${"ball ball-bottom-left svelte-1ff8xh7"}">\xA0</div></div>
+      <div class="${"contener_mixte"}"><div class="${"ball ball-bottom-right svelte-1ff8xh7"}">\xA0</div></div></div></div></div>`;
+});
+var durationUnitRegex = /[a-zA-Z]/;
+var calculateRgba = (color, opacity) => {
+  if (color[0] === "#") {
+    color = color.slice(1);
+  }
+  if (color.length === 3) {
+    let res = "";
+    color.split("").forEach((c) => {
+      res += c;
+      res += c;
+    });
+    color = res;
+  }
+  const rgbValues = (color.match(/.{2}/g) || []).map((hex) => parseInt(hex, 16)).join(", ");
+  return `rgba(${rgbValues}, ${opacity})`;
+};
+var range = (size, startAt = 0) => [...Array(size).keys()].map((i) => i + startAt);
+var css$i = {
+  code: ".wrapper.svelte-xjh60g{position:relative;width:var(--size);height:var(--size)}.circle.svelte-xjh60g{position:absolute;width:var(--size);height:var(--size);background-color:var(--color);border-radius:100%;opacity:0.6;top:0;left:0;animation-fill-mode:both;animation-name:svelte-xjh60g-bounce !important}@keyframes svelte-xjh60g-bounce{0%,100%{transform:scale(0)}50%{transform:scale(1)}}",
+  map: null
+};
+var DoubleBounce = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { color = "#FF3E00" } = $$props;
+  let { unit = "px" } = $$props;
+  let { duration: duration2 = "2.1s" } = $$props;
+  let { size = "60" } = $$props;
+  let durationUnit = duration2.match(durationUnitRegex)[0];
+  let durationNum = duration2.replace(durationUnitRegex, "");
+  if ($$props.color === void 0 && $$bindings.color && color !== void 0)
+    $$bindings.color(color);
+  if ($$props.unit === void 0 && $$bindings.unit && unit !== void 0)
+    $$bindings.unit(unit);
+  if ($$props.duration === void 0 && $$bindings.duration && duration2 !== void 0)
+    $$bindings.duration(duration2);
+  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+    $$bindings.size(size);
+  $$result.css.add(css$i);
+  return `<div class="${"wrapper svelte-xjh60g"}" style="${"--size: " + escape(size) + escape(unit) + "; --color: " + escape(color)}">${each(range(2, 1), (version) => `<div class="${"circle svelte-xjh60g"}" style="${"animation: " + escape(duration2) + " " + escape(version === 1 ? `${(durationNum - 0.1) / 2}${durationUnit}` : `0s`) + " infinite ease-in-out"}"></div>`)}</div>`;
+});
+var css$h = {
+  code: ".wrapper.svelte-a7tuar{width:var(--size);height:var(--size)}.circle.svelte-a7tuar{width:var(--size);height:var(--size);background-color:var(--color);animation-duration:var(--duration);border-radius:100%;display:inline-block;animation:svelte-a7tuar-scaleOut var(--duration) ease-in-out infinite}@keyframes svelte-a7tuar-scaleOut{0%{transform:scale(0)}100%{transform:scale(1);opacity:0}}",
+  map: null
+};
+var ScaleOut = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { color = "#FF3E00" } = $$props;
+  let { unit = "px" } = $$props;
+  let { duration: duration2 = "1s" } = $$props;
+  let { size = "60" } = $$props;
+  if ($$props.color === void 0 && $$bindings.color && color !== void 0)
+    $$bindings.color(color);
+  if ($$props.unit === void 0 && $$bindings.unit && unit !== void 0)
+    $$bindings.unit(unit);
+  if ($$props.duration === void 0 && $$bindings.duration && duration2 !== void 0)
+    $$bindings.duration(duration2);
+  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+    $$bindings.size(size);
+  $$result.css.add(css$h);
+  return `<div class="${"wrapper svelte-a7tuar"}" style="${"--size: " + escape(size) + escape(unit) + "; --color: " + escape(color) + "; --duration: " + escape(duration2) + "; --duration: " + escape(duration2) + ";"}"><div class="${"circle svelte-a7tuar"}"></div></div>`;
+});
+var css$g = {
+  code: ".wrapper.svelte-1qc5fx2{width:var(--size);height:var(--stroke);transform:scale(calc(var(--floatSize) / 75));display:flex;justify-content:center;align-items:center}.line.svelte-1qc5fx2{width:var(--size);height:var(--stroke);background:var(--color);border-radius:var(--stroke);transform-origin:center center;animation:svelte-1qc5fx2-spineLine var(--duration) ease infinite}@keyframes svelte-1qc5fx2-spineLine{0%{transform:rotate(-20deg);height:5px;width:75px}5%{height:5px;width:75px}30%{transform:rotate(380deg);height:5px;width:75px}40%{transform:rotate(360deg);height:5px;width:75px}55%{transform:rotate(0deg);height:5px;width:5px}65%{transform:rotate(0deg);height:5px;width:85px}68%{transform:rotate(0deg);height:5px}75%{transform:rotate(0deg);height:5px;width:1px}78%{height:5px;width:5px}90%{height:5px;width:75px;transform:rotate(0deg)}99%,100%{height:5px;width:75px;transform:rotate(-20deg)}}",
+  map: null
+};
+var SpinLine = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { color = "#FF3E00" } = $$props;
+  let { unit = "px" } = $$props;
+  let { duration: duration2 = "4s" } = $$props;
+  let { size = "60" } = $$props;
+  let { stroke = +size / 12 + unit } = $$props;
+  if ($$props.color === void 0 && $$bindings.color && color !== void 0)
+    $$bindings.color(color);
+  if ($$props.unit === void 0 && $$bindings.unit && unit !== void 0)
+    $$bindings.unit(unit);
+  if ($$props.duration === void 0 && $$bindings.duration && duration2 !== void 0)
+    $$bindings.duration(duration2);
+  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+    $$bindings.size(size);
+  if ($$props.stroke === void 0 && $$bindings.stroke && stroke !== void 0)
+    $$bindings.stroke(stroke);
+  $$result.css.add(css$g);
+  return `<div class="${"wrapper svelte-1qc5fx2"}" style="${"--size: " + escape(size) + escape(unit) + "; --color: " + escape(color) + "; --stroke: " + escape(stroke) + "; --floatSize: " + escape(size) + "; --duration: " + escape(duration2)}"><div class="${"line svelte-1qc5fx2"}"></div></div>`;
+});
+var css$f = {
+  code: ".wrapper.svelte-1yhd21p{height:var(--size);width:var(--size);display:inline-block;text-align:center;font-size:10px}.rect.svelte-1yhd21p{height:100%;width:10%;display:inline-block;margin-right:4px;background-color:var(--color);animation:svelte-1yhd21p-stretch var(--duration) ease-in-out infinite}@keyframes svelte-1yhd21p-stretch{0%,40%,100%{transform:scaleY(0.4)}20%{transform:scaleY(1)}}",
+  map: null
+};
+var Stretch = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { color = "#FF3E00" } = $$props;
+  let { unit = "px" } = $$props;
+  let { duration: duration2 = "1.2s" } = $$props;
+  let { size = "60" } = $$props;
+  let durationUnit = duration2.match(durationUnitRegex)[0];
+  let durationNum = duration2.replace(durationUnitRegex, "");
+  if ($$props.color === void 0 && $$bindings.color && color !== void 0)
+    $$bindings.color(color);
+  if ($$props.unit === void 0 && $$bindings.unit && unit !== void 0)
+    $$bindings.unit(unit);
+  if ($$props.duration === void 0 && $$bindings.duration && duration2 !== void 0)
+    $$bindings.duration(duration2);
+  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+    $$bindings.size(size);
+  $$result.css.add(css$f);
+  return `<div class="${"wrapper svelte-1yhd21p"}" style="${"--size: " + escape(size) + escape(unit) + "; --color: " + escape(color) + "; --duration: " + escape(duration2)}">${each(range(5, 1), (version) => `<div class="${"rect svelte-1yhd21p"}" style="${"animation-delay: " + escape((version - 1) * (+durationNum / 12)) + escape(durationUnit)}"></div>`)}</div>`;
+});
+var css$e = {
+  code: ".wrapper.svelte-1hlc9oa{height:calc(var(--size) / 15);width:calc(var(--size) * 2);background-color:var(--rgba);position:relative;overflow:hidden;background-clip:padding-box}.lines.svelte-1hlc9oa{height:calc(var(--size) / 15);background-color:var(--color)}.small-lines.svelte-1hlc9oa{position:absolute;overflow:hidden;background-clip:padding-box;display:block;border-radius:2px;will-change:left, right;animation-fill-mode:forwards}.small-lines.\\31 .svelte-1hlc9oa{animation:var(--duration) cubic-bezier(0.65, 0.815, 0.735, 0.395) 0s infinite normal none running svelte-1hlc9oa-long}.small-lines.\\32 .svelte-1hlc9oa{animation:var(--duration) cubic-bezier(0.165, 0.84, 0.44, 1) calc((var(--duration) + 0.1) / 2) infinite normal none running svelte-1hlc9oa-short}@keyframes svelte-1hlc9oa-long{0%{left:-35%;right:100%}60%{left:100%;right:-90%}100%{left:100%;right:-90%}}@keyframes svelte-1hlc9oa-short{0%{left:-200%;right:100%}60%{left:107%;right:-8%}100%{left:107%;right:-8%}}",
+  map: null
+};
+var BarLoader = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { color = "#FF3E00" } = $$props;
+  let { unit = "px" } = $$props;
+  let { duration: duration2 = "2.1s" } = $$props;
+  let { size = "60" } = $$props;
+  let rgba;
+  if ($$props.color === void 0 && $$bindings.color && color !== void 0)
+    $$bindings.color(color);
+  if ($$props.unit === void 0 && $$bindings.unit && unit !== void 0)
+    $$bindings.unit(unit);
+  if ($$props.duration === void 0 && $$bindings.duration && duration2 !== void 0)
+    $$bindings.duration(duration2);
+  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+    $$bindings.size(size);
+  $$result.css.add(css$e);
+  rgba = calculateRgba(color, 0.2);
+  return `<div class="${"wrapper svelte-1hlc9oa"}" style="${"--size: " + escape(size) + escape(unit) + "; --rgba:" + escape(rgba)}">${each(range(2, 1), (version) => `<div class="${"lines small-lines " + escape(version) + " svelte-1hlc9oa"}" style="${"--color: " + escape(color) + "; --duration: " + escape(duration2) + ";"}"></div>`)}</div>`;
+});
+var css$d = {
+  code: ".wrapper.svelte-1s3v4dp{width:var(--size);height:var(--size)}.circle.svelte-1s3v4dp{border-radius:100%;animation-fill-mode:both;position:absolute;opacity:0;width:var(--size);height:var(--size);background-color:var(--color);animation:svelte-1s3v4dp-bounce var(--duration) linear infinite}@keyframes svelte-1s3v4dp-bounce{0%{opacity:0;transform:scale(0)}5%{opacity:1}100%{opacity:0;transform:scale(1)}}",
+  map: null
+};
+var Jumper = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { color = "#FF3E00" } = $$props;
+  let { unit = "px" } = $$props;
+  let { duration: duration2 = "1s" } = $$props;
+  let { size = "60" } = $$props;
+  let durationUnit = duration2.match(durationUnitRegex)[0];
+  let durationNum = duration2.replace(durationUnitRegex, "");
+  if ($$props.color === void 0 && $$bindings.color && color !== void 0)
+    $$bindings.color(color);
+  if ($$props.unit === void 0 && $$bindings.unit && unit !== void 0)
+    $$bindings.unit(unit);
+  if ($$props.duration === void 0 && $$bindings.duration && duration2 !== void 0)
+    $$bindings.duration(duration2);
+  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+    $$bindings.size(size);
+  $$result.css.add(css$d);
+  return `<div class="${"wrapper svelte-1s3v4dp"}" style="${"--size: " + escape(size) + escape(unit) + "; --color: " + escape(color) + "; --duration: " + escape(duration2) + ";"}">${each(range(3, 1), (version) => `<div class="${"circle svelte-1s3v4dp"}" style="${"animation-delay: " + escape(durationNum / 3 * (version - 1) + durationUnit) + ";"}"></div>`)}</div>`;
+});
+var css$c = {
+  code: ".wrapper.svelte-165wjfg{position:relative;width:var(--size);height:var(--size)}.border.svelte-165wjfg{border-color:var(--color);position:absolute;top:0px;left:0px;width:var(--size);height:var(--size);opacity:0.4;perspective:800px;border-width:6px;border-style:solid;border-image:initial;border-radius:100%}.border.\\31 .svelte-165wjfg{animation:var(--duration) linear 0s infinite normal none running svelte-165wjfg-ringOne}.border.\\32 .svelte-165wjfg{animation:var(--duration) linear 0s infinite normal none running svelte-165wjfg-ringTwo}@keyframes svelte-165wjfg-ringOne{0%{transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg)}100%{transform:rotateX(360deg) rotateY(180deg) rotateZ(360deg)}}@keyframes svelte-165wjfg-ringTwo{0%{transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg)}100%{transform:rotateX(180deg) rotateY(360deg) rotateZ(360deg)}}",
+  map: null
+};
+var RingLoader = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { color = "#FF3E00" } = $$props;
+  let { unit = "px" } = $$props;
+  let { duration: duration2 = "2s" } = $$props;
+  let { size = "60" } = $$props;
+  if ($$props.color === void 0 && $$bindings.color && color !== void 0)
+    $$bindings.color(color);
+  if ($$props.unit === void 0 && $$bindings.unit && unit !== void 0)
+    $$bindings.unit(unit);
+  if ($$props.duration === void 0 && $$bindings.duration && duration2 !== void 0)
+    $$bindings.duration(duration2);
+  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+    $$bindings.size(size);
+  $$result.css.add(css$c);
+  return `<div class="${"wrapper svelte-165wjfg"}" style="${"--size: " + escape(size) + escape(unit) + "; --color: " + escape(color) + "; --duration: " + escape(duration2) + ";"}">${each(range(2, 1), (version) => `<div class="${"border " + escape(version) + " svelte-165wjfg"}"></div>`)}</div>`;
+});
+var css$b = {
+  code: ".wrapper.svelte-1tlfjt3{height:var(--size);width:var(--size);display:flex;align-items:center;justify-content:center}.dot.svelte-1tlfjt3{height:var(--dotSize);width:var(--dotSize);background-color:var(--color);margin:2px;display:inline-block;border-radius:100%;animation:svelte-1tlfjt3-sync var(--duration) ease-in-out infinite alternate both running}@-webkit-keyframes svelte-1tlfjt3-sync{33%{-webkit-transform:translateY(10px);transform:translateY(10px)}66%{-webkit-transform:translateY(-10px);transform:translateY(-10px)}100%{-webkit-transform:translateY(0);transform:translateY(0)}}@keyframes svelte-1tlfjt3-sync{33%{-webkit-transform:translateY(10px);transform:translateY(10px)}66%{-webkit-transform:translateY(-10px);transform:translateY(-10px)}100%{-webkit-transform:translateY(0);transform:translateY(0)}}",
+  map: null
+};
+var SyncLoader = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { color = "#FF3E00" } = $$props;
+  let { unit = "px" } = $$props;
+  let { duration: duration2 = "0.6s" } = $$props;
+  let { size = "60" } = $$props;
+  let durationUnit = duration2.match(durationUnitRegex)[0];
+  let durationNum = duration2.replace(durationUnitRegex, "");
+  if ($$props.color === void 0 && $$bindings.color && color !== void 0)
+    $$bindings.color(color);
+  if ($$props.unit === void 0 && $$bindings.unit && unit !== void 0)
+    $$bindings.unit(unit);
+  if ($$props.duration === void 0 && $$bindings.duration && duration2 !== void 0)
+    $$bindings.duration(duration2);
+  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+    $$bindings.size(size);
+  $$result.css.add(css$b);
+  return `<div class="${"wrapper svelte-1tlfjt3"}" style="${"--size:" + escape(size) + escape(unit) + "; --duration: " + escape(duration2) + ";"}">${each(range(3, 1), (i) => `<div class="${"dot svelte-1tlfjt3"}" style="${"--dotSize:" + escape(+size * 0.25) + escape(unit) + "; --color:" + escape(color) + "; animation-delay: " + escape(i * (+durationNum / 10)) + escape(durationUnit) + ";"}"></div>`)}</div>`;
+});
+var css$a = {
+  code: ".wrapper.svelte-1uwgqip{width:var(--size);height:calc(var(--size) / 2);overflow:hidden}.rainbow.svelte-1uwgqip{width:var(--size);height:var(--size);border-left-color:transparent;border-bottom-color:transparent;border-top-color:var(--color);border-right-color:var(--color);box-sizing:border-box;transform:rotate(-200deg);border-radius:50%;border-style:solid;animation:var(--duration) ease-in-out 0s infinite normal none running svelte-1uwgqip-rotate}@keyframes svelte-1uwgqip-rotate{0%{border-width:10px}25%{border-width:3px}50%{transform:rotate(115deg);border-width:10px}75%{border-width:3px}100%{border-width:10px}}",
+  map: null
+};
+var Rainbow = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { color = "#FF3E00" } = $$props;
+  let { unit = "px" } = $$props;
+  let { duration: duration2 = "3s" } = $$props;
+  let { size = "60" } = $$props;
+  if ($$props.color === void 0 && $$bindings.color && color !== void 0)
+    $$bindings.color(color);
+  if ($$props.unit === void 0 && $$bindings.unit && unit !== void 0)
+    $$bindings.unit(unit);
+  if ($$props.duration === void 0 && $$bindings.duration && duration2 !== void 0)
+    $$bindings.duration(duration2);
+  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+    $$bindings.size(size);
+  $$result.css.add(css$a);
+  return `<div class="${"wrapper svelte-1uwgqip"}" style="${"--size: " + escape(size) + escape(unit) + "; --color: " + escape(color) + "; --duration: " + escape(duration2) + ";"}"><div class="${"rainbow svelte-1uwgqip"}"></div></div>`;
+});
+var css$9 = {
+  code: ".wrapper.svelte-19g9d98{position:relative;display:flex;justify-content:center;align-items:center;width:calc(var(--size) * 2.5);height:var(--size);overflow:hidden}.bar.svelte-19g9d98{position:absolute;top:calc(var(--size) / 10);width:calc(var(--size) / 5);height:calc(var(--size) / 10);margin-top:calc(var(--size) - var(--size) / 10);transform:skewY(0deg);background-color:var(--color);animation:svelte-19g9d98-motion var(--duration) ease-in-out infinite}@keyframes svelte-19g9d98-motion{25%{transform:skewY(25deg)}50%{height:100%;margin-top:0}75%{transform:skewY(-25deg)}}",
+  map: null
+};
+var Wave = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { color = "#FF3E00" } = $$props;
+  let { unit = "px" } = $$props;
+  let { duration: duration2 = "1.25s" } = $$props;
+  let { size = "60" } = $$props;
+  let durationUnit = duration2.match(durationUnitRegex)[0];
+  let durationNum = duration2.replace(durationUnitRegex, "");
+  if ($$props.color === void 0 && $$bindings.color && color !== void 0)
+    $$bindings.color(color);
+  if ($$props.unit === void 0 && $$bindings.unit && unit !== void 0)
+    $$bindings.unit(unit);
+  if ($$props.duration === void 0 && $$bindings.duration && duration2 !== void 0)
+    $$bindings.duration(duration2);
+  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+    $$bindings.size(size);
+  $$result.css.add(css$9);
+  return `<div class="${"wrapper svelte-19g9d98"}" style="${"--size: " + escape(size) + escape(unit) + "; --color: " + escape(color) + "; --duration: " + escape(duration2) + ";"}">${each(range(10, 0), (version) => `<div class="${"bar svelte-19g9d98"}" style="${"left: " + escape(version * (+size / 5 + (+size / 15 - +size / 100)) + unit) + "; animation-delay: " + escape(version * (+durationNum / 8.3)) + escape(durationUnit) + ";"}"></div>`)}</div>`;
+});
+var css$8 = {
+  code: ".wrapper.svelte-ig2x43{width:calc(var(--size) * 1.3);height:calc(var(--size) * 1.3);display:flex;justify-content:center;align-items:center}.firework.svelte-ig2x43{border:calc(var(--size) / 10) dotted var(--color);width:var(--size);height:var(--size);border-radius:50%;animation:svelte-ig2x43-fire var(--duration) cubic-bezier(0.165, 0.84, 0.44, 1) infinite}@keyframes svelte-ig2x43-fire{0%{opacity:1;transform:scale(0.1)}25%{opacity:0.85}100%{transform:scale(1);opacity:0}}",
+  map: null
+};
+var Firework = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { color = "#FF3E00" } = $$props;
+  let { unit = "px" } = $$props;
+  let { duration: duration2 = "1.25s" } = $$props;
+  let { size = "60" } = $$props;
+  if ($$props.color === void 0 && $$bindings.color && color !== void 0)
+    $$bindings.color(color);
+  if ($$props.unit === void 0 && $$bindings.unit && unit !== void 0)
+    $$bindings.unit(unit);
+  if ($$props.duration === void 0 && $$bindings.duration && duration2 !== void 0)
+    $$bindings.duration(duration2);
+  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+    $$bindings.size(size);
+  $$result.css.add(css$8);
+  return `<div class="${"wrapper svelte-ig2x43"}" style="${"--size: " + escape(size) + escape(unit) + "; --color: " + escape(color) + "; --duration: " + escape(duration2) + ";"}"><div class="${"firework svelte-ig2x43"}"></div></div>`;
+});
+var css$7 = {
+  code: ".wrapper.svelte-12aog78{position:relative;display:flex;justify-content:center;align-items:center;width:var(--size);height:calc(var(--size) / 2.5)}.cube.svelte-12aog78{position:absolute;top:0px;width:calc(var(--size) / 5);height:calc(var(--size) / 2.5);background-color:var(--color);animation:svelte-12aog78-motion var(--duration) cubic-bezier(0.895, 0.03, 0.685, 0.22) infinite}@keyframes svelte-12aog78-motion{0%{opacity:1}50%{opacity:0}100%{opacity:1}}",
+  map: null
+};
+var Pulse = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { color = "#FF3E00" } = $$props;
+  let { unit = "px" } = $$props;
+  let { duration: duration2 = "1.5s" } = $$props;
+  let { size = "60" } = $$props;
+  let durationUnit = duration2.match(durationUnitRegex)[0];
+  let durationNum = duration2.replace(durationUnitRegex, "");
+  if ($$props.color === void 0 && $$bindings.color && color !== void 0)
+    $$bindings.color(color);
+  if ($$props.unit === void 0 && $$bindings.unit && unit !== void 0)
+    $$bindings.unit(unit);
+  if ($$props.duration === void 0 && $$bindings.duration && duration2 !== void 0)
+    $$bindings.duration(duration2);
+  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+    $$bindings.size(size);
+  $$result.css.add(css$7);
+  return `<div class="${"wrapper svelte-12aog78"}" style="${"--size: " + escape(size) + escape(unit) + "; --color: " + escape(color) + "; --duration: " + escape(duration2)}">${each(range(3, 0), (version) => `<div class="${"cube svelte-12aog78"}" style="${"animation-delay: " + escape(version * (+durationNum / 10)) + escape(durationUnit) + "; left: " + escape(version * (+size / 3 + +size / 15) + unit) + ";"}"></div>`)}</div>`;
+});
+var css$6 = {
+  code: ".wrapper.svelte-ny4e18{position:relative;display:flex;justify-content:center;align-items:center;width:var(--size);height:var(--size)}.ring.svelte-ny4e18{position:absolute;border:2px solid var(--color);border-radius:50%;background-color:transparent;animation:svelte-ny4e18-motion var(--duration) ease infinite}@keyframes svelte-ny4e18-motion{0%{transform:translateY(var(--motionOne))}50%{transform:translateY(var(--motionTwo))}100%{transform:translateY(var(--motionThree))}}",
+  map: null
+};
+var Jellyfish = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { color = "#FF3E00" } = $$props;
+  let { unit = "px" } = $$props;
+  let { duration: duration2 = "2.5s" } = $$props;
+  let { size = "60" } = $$props;
+  let durationUnit = duration2.match(durationUnitRegex)[0];
+  let durationNum = duration2.replace(durationUnitRegex, "");
+  if ($$props.color === void 0 && $$bindings.color && color !== void 0)
+    $$bindings.color(color);
+  if ($$props.unit === void 0 && $$bindings.unit && unit !== void 0)
+    $$bindings.unit(unit);
+  if ($$props.duration === void 0 && $$bindings.duration && duration2 !== void 0)
+    $$bindings.duration(duration2);
+  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+    $$bindings.size(size);
+  $$result.css.add(css$6);
+  return `<div class="${"wrapper svelte-ny4e18"}" style="${"--size: " + escape(size) + escape(unit) + "; --color: " + escape(color) + "; --motionOne: " + escape(-size / 5) + escape(unit) + "; --motionTwo: " + escape(+size / 4) + escape(unit) + "; --motionThree: " + escape(-size / 5) + escape(unit) + "; --duration: " + escape(duration2) + ";"}">${each(range(6, 0), (version) => `<div class="${"ring svelte-ny4e18"}" style="${"animation-delay: " + escape(version * (durationNum / 25)) + escape(durationUnit) + "; width: " + escape(version * (+size / 6) + unit) + "; height: " + escape(version * (+size / 6) / 2 + unit) + ";"}"></div>`)}</div>`;
+});
+var css$5 = {
+  code: ".wrapper.svelte-sdtow4{height:var(--size);width:var(--size);display:flex;justify-content:center;align-items:center}.spinner.svelte-sdtow4{height:var(--size);width:var(--size);animation:svelte-sdtow4-rotate var(--duration) infinite linear}.dot.svelte-sdtow4{width:60%;height:60%;display:inline-block;position:absolute;top:0;background-color:var(--color);border-radius:100%;animation:svelte-sdtow4-bounce var(--duration) infinite ease-in-out}@keyframes svelte-sdtow4-rotate{100%{transform:rotate(360deg)}}@keyframes svelte-sdtow4-bounce{0%,100%{transform:scale(0)}50%{transform:scale(1)}}",
+  map: null
+};
+var Chasing = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { color = "#FF3E00" } = $$props;
+  let { unit = "px" } = $$props;
+  let { duration: duration2 = "2s" } = $$props;
+  let { size = "60" } = $$props;
+  let durationUnit = duration2.match(durationUnitRegex)[0];
+  let durationNum = duration2.replace(durationUnitRegex, "");
+  if ($$props.color === void 0 && $$bindings.color && color !== void 0)
+    $$bindings.color(color);
+  if ($$props.unit === void 0 && $$bindings.unit && unit !== void 0)
+    $$bindings.unit(unit);
+  if ($$props.duration === void 0 && $$bindings.duration && duration2 !== void 0)
+    $$bindings.duration(duration2);
+  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+    $$bindings.size(size);
+  $$result.css.add(css$5);
+  return `<div class="${"wrapper svelte-sdtow4"}" style="${"--size: " + escape(size) + escape(unit) + "; --color: " + escape(color) + "; --duration: " + escape(duration2) + ";"}"><div class="${"spinner svelte-sdtow4"}">${each(range(2, 0), (version) => `<div class="${"dot svelte-sdtow4"}" style="${"animation-delay: " + escape(version === 1 ? `${durationNum / 2}${durationUnit}` : "0s") + "; bottom: " + escape(version === 1 ? "0" : "") + "; top: " + escape(version === 1 ? "auto" : "") + ";"}"></div>`)}</div></div>`;
+});
+var css$4 = {
+  code: ".wrapper.svelte-a6rt3q{position:relative;display:flex;justify-content:center;align-items:center;width:var(--size);height:var(--size)}.shadow.svelte-a6rt3q{color:var(--color);font-size:var(--size);overflow:hidden;width:var(--size);height:var(--size);border-radius:50%;margin:28px auto;position:relative;transform:translateZ(0);animation:svelte-a6rt3q-load var(--duration) infinite ease, svelte-a6rt3q-round var(--duration) infinite ease}@keyframes svelte-a6rt3q-load{0%{box-shadow:0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em}5%,95%{box-shadow:0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em}10%,59%{box-shadow:0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em}20%{box-shadow:0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em}38%{box-shadow:0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em}100%{box-shadow:0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em}}@keyframes svelte-a6rt3q-round{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}",
+  map: null
+};
+var Shadow = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { color = "#FF3E00" } = $$props;
+  let { unit = "px" } = $$props;
+  let { duration: duration2 = "1.7s" } = $$props;
+  let { size = "60" } = $$props;
+  if ($$props.color === void 0 && $$bindings.color && color !== void 0)
+    $$bindings.color(color);
+  if ($$props.unit === void 0 && $$bindings.unit && unit !== void 0)
+    $$bindings.unit(unit);
+  if ($$props.duration === void 0 && $$bindings.duration && duration2 !== void 0)
+    $$bindings.duration(duration2);
+  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+    $$bindings.size(size);
+  $$result.css.add(css$4);
+  return `<div class="${"wrapper svelte-a6rt3q"}" style="${"--size: " + escape(size) + escape(unit) + "; --color: " + escape(color) + "; --duration: " + escape(duration2) + ";"}"><div class="${"shadow svelte-a6rt3q"}"></div></div>`;
+});
+var css$3 = {
+  code: ".square.svelte-ybl8u5{height:var(--size);width:var(--size);background-color:var(--color);animation:svelte-ybl8u5-squareDelay var(--duration) 0s infinite cubic-bezier(0.09, 0.57, 0.49, 0.9);animation-fill-mode:both;perspective:100px;display:inline-block}@keyframes svelte-ybl8u5-squareDelay{25%{-webkit-transform:rotateX(180deg) rotateY(0);transform:rotateX(180deg) rotateY(0)}50%{-webkit-transform:rotateX(180deg) rotateY(180deg);transform:rotateX(180deg) rotateY(180deg)}75%{-webkit-transform:rotateX(0) rotateY(180deg);transform:rotateX(0) rotateY(180deg)}100%{-webkit-transform:rotateX(0) rotateY(0);transform:rotateX(0) rotateY(0)}}",
+  map: null
+};
+var Square = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { color = "#FF3E00" } = $$props;
+  let { unit = "px" } = $$props;
+  let { duration: duration2 = "3s" } = $$props;
+  let { size = "60" } = $$props;
+  if ($$props.color === void 0 && $$bindings.color && color !== void 0)
+    $$bindings.color(color);
+  if ($$props.unit === void 0 && $$bindings.unit && unit !== void 0)
+    $$bindings.unit(unit);
+  if ($$props.duration === void 0 && $$bindings.duration && duration2 !== void 0)
+    $$bindings.duration(duration2);
+  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+    $$bindings.size(size);
+  $$result.css.add(css$3);
+  return `<div class="${"square svelte-ybl8u5"}" style="${"--size: " + escape(size) + escape(unit) + "; --color: " + escape(color) + "; --duration: " + escape(duration2) + ";"}"></div>`;
+});
+var css$2 = {
+  code: ".wrapper.svelte-1jhc57e{height:var(--size);width:var(--size);border-radius:100%;animation:svelte-1jhc57e-moonStretchDelay var(--duration) 0s infinite linear;animation-fill-mode:forwards;position:relative}.circle-one.svelte-1jhc57e{top:var(--moonSize);background-color:var(--color);width:calc(var(--size) / 7);height:calc(var(--size) / 7);border-radius:100%;animation:svelte-1jhc57e-moonStretchDelay var(--duration) 0s infinite linear;animation-fill-mode:forwards;opacity:0.8;position:absolute}.circle-two.svelte-1jhc57e{opacity:0.1;border:calc(var(--size) / 7) solid var(--color);height:var(--size);width:var(--size);border-radius:100%;box-sizing:border-box}@keyframes svelte-1jhc57e-moonStretchDelay{100%{transform:rotate(360deg)}}",
+  map: null
+};
+var Moon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { color = "#FF3E00" } = $$props;
+  let { unit = "px" } = $$props;
+  let { duration: duration2 = "0.6s" } = $$props;
+  let { size = "60" } = $$props;
+  let moonSize = +size / 7;
+  let top = +size / 2 - moonSize / 2;
+  if ($$props.color === void 0 && $$bindings.color && color !== void 0)
+    $$bindings.color(color);
+  if ($$props.unit === void 0 && $$bindings.unit && unit !== void 0)
+    $$bindings.unit(unit);
+  if ($$props.duration === void 0 && $$bindings.duration && duration2 !== void 0)
+    $$bindings.duration(duration2);
+  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+    $$bindings.size(size);
+  $$result.css.add(css$2);
+  return `<div class="${"wrapper svelte-1jhc57e"}" style="${"--size: " + escape(size) + escape(unit) + "; --color: " + escape(color) + "; --moonSize: " + escape(top) + escape(unit) + "; --duration: " + escape(duration2) + ";"}"><div class="${"circle-one svelte-1jhc57e"}"></div>
+  <div class="${"circle-two svelte-1jhc57e"}"></div></div>`;
+});
+var css$1 = {
+  code: ".wrapper.svelte-18zlmr3.svelte-18zlmr3{height:100vh;width:100%;display:flex;flex-direction:column;padding:2rem}header.svelte-18zlmr3.svelte-18zlmr3,main.svelte-18zlmr3.svelte-18zlmr3,footer.svelte-18zlmr3.svelte-18zlmr3{padding:1rem;text-align:center}h1.svelte-18zlmr3 img.svelte-18zlmr3{width:40%;height:auto}footer.svelte-18zlmr3.svelte-18zlmr3{font-size:2rem}main.svelte-18zlmr3.svelte-18zlmr3{flex:1;display:flex;align-items:center;justify-content:center;font-size:4rem}",
+  map: null
+};
+var prerender$1 = true;
+var ssr$1 = true;
+var Spinners = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let spinners = [
+    BarLoader,
+    Chasing,
+    Circle,
+    Circle2,
+    Circle3,
+    DoubleBounce,
+    Firework,
+    Jellyfish,
+    Jumper,
+    Pulse,
+    Rainbow,
+    RingLoader,
+    ScaleOut,
+    Shadow,
+    SpinLine,
+    Stretch,
+    SyncLoader,
+    Wave,
+    Square,
+    Moon
+  ];
+  let Spinner2 = randomItem(spinners);
+  let color = randomColor();
+  $$result.css.add(css$1);
+  return `<div class="${"wrapper svelte-18zlmr3"}"><header class="${"svelte-18zlmr3"}"><h1 class="${"svelte-18zlmr3"}"><img src="${"/semi-logo.svg"}" width="${"241"}" height="${"84"}" class="${"svelte-18zlmr3"}"></h1></header>
+    <main class="${"svelte-18zlmr3"}">${validate_component(Spinner2 || missing_component, "svelte:component").$$render($$result, { size: "300", unit: "px", color }, {}, {})}</main>
+    <footer class="${"svelte-18zlmr3"}"><h3>Live preview is generating...</h3></footer>
+</div>`;
+});
+var index$1 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": Spinners,
+  prerender: prerender$1,
+  ssr: ssr$1
+});
+var _layout_reset = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  return `${slots.default ? slots.default({}) : ``}`;
+});
+var __layout_reset = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": _layout_reset
+});
+var css = {
+  code: ".wrapper.svelte-remgxx{height:100vh;width:100%;display:flex;flex-direction:column;padding:2rem}header.svelte-remgxx,main.svelte-remgxx,footer.svelte-remgxx{padding:1rem;text-align:center}h1.svelte-remgxx{font-size:8rem}footer.svelte-remgxx{font-size:2rem}main.svelte-remgxx{flex:1;display:flex;align-items:center;justify-content:center;font-size:4rem}",
+  map: null
+};
+var prerender = true;
+var ssr = true;
+var Preview = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  $$result.css.add(css);
+  return `<div class="${"wrapper svelte-remgxx"}"><header class="${"svelte-remgxx"}"><h1 class="${"svelte-remgxx"}">SEMI*</h1></header>
+    <main class="${"svelte-remgxx"}">${validate_component(Spinner, "Spinner").$$render($$result, {}, {}, {})}</main>
+    <footer class="${"svelte-remgxx"}"><h3>Live preivew is generating</h3></footer>
+</div>`;
 });
 var index = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
-  "default": Routes,
+  "default": Preview,
   prerender,
-  ssr,
-  load
+  ssr
 });
 
 // .svelte-kit/netlify/entry.js
